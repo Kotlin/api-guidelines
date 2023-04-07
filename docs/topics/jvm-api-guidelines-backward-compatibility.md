@@ -49,7 +49,7 @@ well-known principles.
 ### Don't add arguments to existing API functions
 
 Adding non-default arguments to a public API is a breaking change because the existing code won't have enough information 
-to call the updated methods. Adding even [default arguments](functions.md#default-arguments) might also break 
+to call the updated methods. Adding even [default arguments](https://kotlinlang.org/docs/functions.html#default-arguments) might also break 
 your users' code.
 
 Breaking backward compatibility is shown below in an example of two classes: `lib.kt` representing a "library", 
@@ -146,12 +146,12 @@ public final class LibKt {
 
 The method with signature `public static final int fib()` was replaced with a new method with signature 
 `public static final int fib(int)` . At the same time, a proxy method `fib$default` delegates the execution to `fib(int)`. 
-For JVM, it's possible to work around this: you need to add a [`@JvmOverloads`](java-to-kotlin-interop.md#overloads-generation) 
+For JVM, it's possible to work around this: you need to add a [`@JvmOverloads`](https://kotlinlang.org/docs/java-to-kotlin-interop.html#overloads-generation) 
 annotation. For multiplatform projects, there is unfortunately no workaround.
 
 ### Don't use data classes in API
 
-[Data classes](data-classes.md) are tempting to use because they are short, concise, and have some functionality 
+[Data classes](https://kotlinlang.org/docs/data-classes.html) are tempting to use because they are short, concise, and have some functionality 
 out of the box. However, due to some specifics of how data classes work, it's better not to use them in library APIs. 
 Almost any change makes the API not backward compatible.
 
@@ -234,7 +234,7 @@ In addition, if you add a field into the class's body, you have to override the 
 
 ### Don't make return types narrower
 
-Sometimes, especially when you don't use [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors), 
+Sometimes, especially when you don't use [explicit API mode](https://kotlinlang.org/docs/whatsnew14.html#explicit-api-mode-for-library-authors), 
 a return type declaration can change implicitly. But even if it's not the case, you might want to narrow the signature. 
 For example, sometimes you realize that you need index access to the elements of your collection and want to change 
 the return type from `Collection` to `RandomAccess`. This section describes why it is a bad idea for a library author 
@@ -288,7 +288,7 @@ such a method – **binary compatibility has been violated**.
 
 ## The @PublishedApi annotation
 
-Sometimes, you might need to use a part of your internal API to implement [inline functions](inline-functions.md). 
+Sometimes, you might need to use a part of your internal API to implement [inline functions](https://kotlinlang.org/docs/inline-functions.html). 
 You can do this with the [`@PublishedApi`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-published-api) annotation. 
 You should treat parts of code annotated with `@PublishedApi` as parts of public API, and, therefore, you should 
 be careful about their backward compatibility.
@@ -296,12 +296,12 @@ be careful about their backward compatibility.
 ## The @RequiresOptIn annotation
 
 Sometimes, you might want to experiment with your API. In Kotlin, there is a nice way to define that some API is unstable – 
-use the [`@RequiresOptIn` annotation](opt-in-requirements.md#require-opt-in-for-api). However, be aware of the following:
+use the [`@RequiresOptIn` annotation](https://kotlinlang.org/docs/opt-in-requirements.html#require-opt-in-for-api). However, be aware of the following:
 1. If you haven't changed something for a long time and it's stable, you should reconsider using the `@RequiresOptIn` annotation.
 2. You may use the `@RequiresOptIn` annotation to define different guarantees to different parts of the API: 
    Preview, Experimental, Internal, Delicate, or Alpha, Beta, RC.
 3. You should explicitly define what each [level](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/) 
-   means, write [KDoc](kotlin-doc.md) comments, and add a warning message.
+   means, write [KDoc](https://kotlinlang.org/docs/kotlin-doc.html) comments, and add a warning message.
 
 If you depend on an API requiring opt-in, don't use the `@OptIn` annotation. Instead, use the `@RequiresOptIn` annotation 
 so that your user is able to consciously choose what API they want to use and what not.
@@ -312,7 +312,7 @@ with `@OptIn(RequiresFullKotlinReflection::class)`.
 
 ## Explicit API mode
 
-You should try to keep your API as transparent as possible. To force the API to be transparent, use the [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors).
+You should try to keep your API as transparent as possible. To force the API to be transparent, use the [explicit API mode](https://kotlinlang.org/docs/whatsnew14.html#explicit-api-mode-for-library-authors).
 
 Kotlin gives you vast freedom in how you can write code. It is possible not to define types, omit visibility declarations, 
 or omit documentation for something. The explicit API mode forces you as a developer to make implicit things explicit. 
@@ -355,7 +355,7 @@ to use when you don't have access to older builds of your library. Also, japicmp
 in Kotlin metadata, which you may not need (because a metadata format is not specified and is considered to be used only 
 for Kotlin internal usage).
 
-The Binary compatibility validator works only as a Gradle plugin, and it is on the [Alpha stability level](components-stability.md#stability-levels-explained). 
+The Binary compatibility validator works only as a Gradle plugin, and it is on the [Alpha stability level](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained). 
 It doesn't need access to JAR files. It only needs specific dumps of the previous API and the current API. It's capable 
 of collecting these dumps itself.
 Learn more about these tools below.

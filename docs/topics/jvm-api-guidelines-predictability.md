@@ -12,7 +12,7 @@ This chapter contains the following recommendations:
 ## Use sealed interfaces
 
 Interfaces in your API are usually necessary when you need to have an abstraction from implementation. If you have to use 
-interfaces, consider using [sealed interfaces](sealed-classes.md). This is especially important if you don't want API users 
+interfaces, consider using [sealed interfaces](https://kotlinlang.org/docs/sealed-classes.html). This is especially important if you don't want API users 
 to extend your hierarchy.
 
 > Remember that adding a new implementation to a sealed interface immediately makes a user's code invalid.
@@ -170,7 +170,7 @@ it's an additional runtime overhead for each call of the `values()` function.
 
 ## Avoid varargs
 
-A `vararg` –[variable number of arguments](functions.md#variable-number-of-arguments-varargs)– works as an array 
+A `vararg` –[variable number of arguments](https://kotlinlang.org/docs/functions.html#variable-number-of-arguments-varargs)– works as an array 
 under the hood, but the array elements are passed individually to the function, not the whole array. This operation is 
 costly because it's copying the same array repeatedly.
 

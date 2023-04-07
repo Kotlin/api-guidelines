@@ -44,7 +44,7 @@ This results in improved output:
 
 <img src="improved-output-of-vector-objects-in-debug.png" alt="Improved output of vector class objects in the debug tool window" width="500"/>
 
-> It might seem a good idea to use [data classes](data-classes.md) because they have a `toString()` method automatically. 
+> It might seem a good idea to use [data classes](https://kotlinlang.org/docs/data-classes.html) because they have a `toString()` method automatically. 
 > In the [Backward compatibility](jvm-api-guidelines-backward-compatibility.md) section of this guide, you'll learn 
 > [why it's better not to do this](jvm-api-guidelines-backward-compatibility.md#don-t-use-data-classes-in-api).
 >

@@ -180,8 +180,8 @@ public fun <T> listOf(vararg elements: T): List<T> =
 
 ## Use member and extension functions appropriately
 
-Write only the very core of the API as [member functions](functions.md#member-functions) and everything else as 
-[extension functions](extensions.md#extension-functions). It allows you to clearly show to the reader what's 
+Write only the very core of the API as [member functions](https://kotlinlang.org/docs/functions.html#member-functions) and everything else as 
+[extension functions](https://kotlinlang.org/docs/extensions.html#extension-functions). It allows you to clearly show to the reader what's 
 the core functionality and what's not.
 
 For example, consider a class for a graph:
@@ -223,7 +223,7 @@ So, only properties, overrides, and accessors should be members.
 ## Avoid using Boolean arguments in functions
 
 It's almost impossible to understand what the purpose of a `Boolean` argument is just by reading code anywhere except 
-in IDEs, for example, on some version control system sites. Using [named arguments](functions.md#named-arguments) can help 
+in IDEs, for example, on some version control system sites. Using [named arguments](https://kotlinlang.org/docs/functions.html#named-arguments) can help 
 to clarify this, but for now in IDEs, there is no way to force developers to use them. Another option is to create a function 
 that contains the action of the `Boolean` argument and give this function a descriptive name.
 
