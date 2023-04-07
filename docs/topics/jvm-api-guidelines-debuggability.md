@@ -13,7 +13,7 @@ The following code is a simplified example from a graphical modeling area:
 class Vector2D(val x: Int, val y: Int)
 
 fun main() {
-	val result = (1..20).map { Vector2D(it, it) }
+    val result = (1..20).map { Vector2D(it, it) }
 	println(result)
 }
 ```
@@ -32,7 +32,7 @@ To make both logging and debugging much more readable, add a simple `toString()`
 
 ```kotlin
 override fun toString(): String {
-	return "Vector2D(x=$x, y=$y)"
+    return "Vector2D(x=$x, y=$y)"
 }
 ```
 
@@ -56,24 +56,24 @@ it sometimes may be important if it's the same builder or a new one.
 
 ```kotlin
 class Person(val name: String?, val age: Int?, val children: List<Person>) {
-   override fun toString(): String {
-       return "Person(name=$name, age=$age, children=$children)"
-   }
+    override fun toString(): String {
+        return "Person(name=$name, age=$age, children=$children)"
+    }
 }
 
 class PersonBuilder {
-   var name: String? = null
-   var age: Int? = null
-   val children = arrayListOf<Person>()
-   fun child(personBuilder: PersonBuilder.() -> Unit = {}) {
-       children.add(person(personBuilder))
-   }
+    var name: String? = null
+    var age: Int? = null
+    val children = arrayListOf<Person>()
+    fun child(personBuilder: PersonBuilder.() -> Unit = {}) {
+        children.add(person(personBuilder))
+    }
 }
 
 fun person(personBuilder: PersonBuilder.() -> Unit = {}): Person {
-   val builder = PersonBuilder()
-   builder.personBuilder()
-   return Person(builder.name, builder.age, builder.children)
+    val builder = PersonBuilder()
+    builder.personBuilder()
+    return Person(builder.name, builder.age, builder.children)
 }
 ```
 
@@ -90,11 +90,12 @@ If you add a simple `toString()` implementation like this:
 
 ```kotlin
 override fun toString(): String {
-	return "PersonBuilder(name=$name, age=$age, children=$children)"
+    return "PersonBuilder(name=$name, age=$age, children=$children)"
 }
 ```
 
 The debug data becomes much clearer:
+
 <img src="debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="500"/>
 
 You can also see immediately which fields are set and which are not.

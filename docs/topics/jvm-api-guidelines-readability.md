@@ -135,8 +135,8 @@ your API users create such an `Option`, they must write some logic and check wha
 
 ```kotlin
 fun findById(id: Int): Option<Person> {
-  val person = db.personById(id)
-  return if (person == null) None else Some(person)
+    val person = db.personById(id)
+    return if (person == null) None else Some(person)
 }
 ```
 
@@ -184,22 +184,22 @@ For example, consider a class for a graph:
 
 ```kotlin
 class Graph {
-	private val _vertices: MutableSet<Int> = mutableSetOf()
+    private val _vertices: MutableSet<Int> = mutableSetOf()
 	private val _edges: MutableMap<Int, MutableSet<Int>> = mutableMapOf()
 
 	fun addVertex(vertex: Int) {
-    	  _vertices.add(vertex)
+        _vertices.add(vertex)
 	}
 
 	fun addEdge(vertex1: Int, vertex2: Int) {
-    	  _vertices.add(vertex1)
-    	  _vertices.add(vertex2)
-    	  _edges.getOrPut(vertex1) { mutableSetOf() }.add(vertex2)
-    	  _edges.getOrPut(vertex2) { mutableSetOf() }.add(vertex1)
+        _vertices.add(vertex1)
+        _vertices.add(vertex2)
+        _edges.getOrPut(vertex1) { mutableSetOf() }.add(vertex2)
+        _edges.getOrPut(vertex2) { mutableSetOf() }.add(vertex1)
 	}
 
 	val vertices: Set<Int> get() = _vertices
-      val edges: Map<Int, Set<Int>> get() = _edges
+        val edges: Map<Int, Set<Int>> get() = _edges
 }
 ```
 

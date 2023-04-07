@@ -2,7 +2,7 @@
 
 This chapter contains considerations about [backward compatibility](#backward-compatibility-definition). 
 Here are the "don't do" advices:
-* [Don't add arguments to existing functions](#dont-add-arguments-to-existing-functions)
+* [Don't add arguments to existing API functions](#dont-add-arguments-to-existing-api-functions)
 * [Don't use data classes in API](#dont-use-data-classes-in-api)
 * [Don't make return types narrower](#dont-make-return-types-narrower)
 
@@ -46,7 +46,7 @@ well-known principles.
 
 ## "Don't do" advices
 
-### Don't add arguments to existing functions
+### Don't add arguments to existing API functions
 
 Adding non-default arguments to a public API is a breaking change because the existing code won't have enough information 
 to call the updated methods. Adding even [default arguments](functions.md#default-arguments) might also break 
@@ -159,14 +159,14 @@ Usually, it's hard to predict how you will need to change a class over time. Eve
 there is no way to be sure that your needs won't change in the future. So, all the issues with data classes only exist 
 when you decide to change such a class.
 
-Firstly, the considerations from the previous section [Don't add arguments](#dont-add-arguments-to-existing-functions) 
+Firstly, the considerations from the previous section [Don't add arguments](#dont-add-arguments-to-existing-api-functions) 
 also apply to the constructor as it is also a method. Secondly, even if you add secondary constructors, it won't solve 
 the compatibility problem. Let's look at the following data class:
 
 ```kotlin
 data class User(
-  val name: String,
-  val email: String
+    val name: String,
+    val email: String
 )
 ```
 
@@ -174,14 +174,14 @@ For example, over some time, you understand that users should go through an acti
 a new field, "active" with a default value equal to "true". This new field should allow the existing code to work 
 mostly without changes.
 
-As it was already discussed in the [section above](#dont-add-arguments-to-existing-functions), you can't just add 
+As it was already discussed in the [section above](#dont-add-arguments-to-existing-api-functions), you can't just add 
 a new field like this:
 
 ```kotlin
 data class User(
-  val name: String,
-  val email: String,
-  val active: Boolean = true
+    val name: String,
+    val email: String,
+    val active: Boolean = true
 )
 ```
 
@@ -191,11 +191,11 @@ Let's add a new constructor that accepts only two arguments and calls the primar
 
 ```kotlin
 data class User(
-  val name: String,
-  val email: String,
-  val active: Boolean = true
+    val name: String,
+    val email: String,
+    val active: Boolean = true
 ) {
-  constructor(name: String, email: String): this(name, email, active = true)
+    constructor(name: String, email: String): this(name, email, active = true)
 }
 ```
 
@@ -249,7 +249,7 @@ And an example of its use in the `client.kt` file:
 
 ```kotlin
 fun main() {
-  println(x())
+    println(x())
 }
 ```
 
@@ -277,6 +277,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: 'java.lang.Number Librar
 ```
 
 This happens because of the following line in bytecode:
+
 ```none
 0: invokestatic  #12 // Method Library.x:()Ljava/lang/Number;
 ```
@@ -295,11 +296,11 @@ be careful about their backward compatibility.
 
 Sometimes, you might want to experiment with your API. In Kotlin, there is a nice way to define that some API is unstable – 
 use the [`@RequiresOptIn` annotation](opt-in-requirements.md#require-opt-in-for-api). However, be aware of the following:
-If you haven't changed something for a long time and it's stable, you should reconsider using the `@RequiresOptIn` annotation.
-You may use the `@RequiresOptIn` annotation to define different guarantees to different parts of the API: 
-Preview, Experimental, Internal, Delicate, or Alpha, Beta, RC.
-You should explicitly define what each [level](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/) 
-means, write [KDoc](kotlin-doc.md) comments and add a warning message.
+1. If you haven't changed something for a long time and it's stable, you should reconsider using the `@RequiresOptIn` annotation.
+2. You may use the `@RequiresOptIn` annotation to define different guarantees to different parts of the API: 
+   Preview, Experimental, Internal, Delicate, or Alpha, Beta, RC.
+3. You should explicitly define what each [level](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/) 
+   means, write [KDoc](kotlin-doc.md) comments and add a warning message.
 
 If you depend on an API requiring opt-in, don't use the `@OptIn` annotation. Instead, use the `@RequiresOptIn` annotation 
 so that your user is able to consciously choose what API they want to use and what not.
@@ -366,6 +367,7 @@ that helps you to ensure the backward compatibility of your libraries and framew
 and reporting any breaking changes in the API. The tool analyzes the library's bytecode before and after you made changes 
 and compares the two versions to identify any changes that may break existing code. This makes it easy to detect and 
 fix any issues before they become a problem for your users.
+
 It can save a significant amount of time and effort that you would otherwise spend on manual testing and inspection. 
 It can also help to prevent issues that may arise due to breaking changes in the API. This can ultimately lead to a better 
 user experience, as users will be able to rely on the stability and compatibility of the library or framework.
@@ -380,12 +382,12 @@ For example, consider this code:
 
 ```kotlin
 class Calculator {
-	fun add(a: Int, b: Int): Int {
-    	  return a + b
+    fun add(a: Int, b: Int): Int {
+        return a + b
 	}
 
 	fun multiply(a: Int, b: Int): Int {
-    	  return a * b
+        return a * b
 	}
 }
 ```
@@ -395,15 +397,15 @@ If you add a new method without breaking the compatibility like this:
 ```kotlin
 class Calculator {
 	fun add(a: Int, b: Int): Int {
-    	  return a + b
+        return a + b
 	}
 
 	fun multiply(a: Int, b: Int): Int {
-    	  return a * b
+        return a * b
 	}
 
 	fun divide(a: Int, b: Int): Int {
-    	  return a / b
+        return a / b
 	}
 }
 ```

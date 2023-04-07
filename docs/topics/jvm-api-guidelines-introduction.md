@@ -20,10 +20,12 @@ this guide provides an explanation of cognitive complexity before proceeding to 
 
 Cognitive complexity is the amount of mental effort you need to spend to understand a piece of code. If a codebase has 
 high cognitive complexity, then it is more difficult to understand and maintain, which can lead to bugs and delays in development.
+
 An example of high cognitive complexity is a class or module that has many responsibilities and does not follow 
 the [Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle). 
 A class or module that does too many things is hard to understand and modify. In contrast, a class or module that has 
 a clear and well-defined responsibility is easier to work with.
+
 Functions can also have high cognitive complexity. Some traits of a "badly written" function are:
 * Too many arguments, variables, or loops.
 * Complex logic with many nested if-else statements.
@@ -34,7 +36,7 @@ An example of high cognitive complexity:
 
 ```kotlin
 fun processData(data: List<String>, delimiter: String, ignoreCase: Boolean, sort: Boolean, maxLength: Int) {
-	// Some complex processing logic
+    // Some complex processing logic
 }
 ```
 

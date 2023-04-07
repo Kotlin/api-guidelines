@@ -25,6 +25,7 @@ which could break your code. Instead, you can make `interface JsonElement` _seal
 
 ```kotlin
 sealed interface JsonElement
+
 class JsonNumber(val value: Number): JsonElement
 class JsonObject(val values: Map<String, JsonElement>): JsonElement
 class JsonArray(val values: List<JsonElement>): JsonElement
@@ -60,7 +61,7 @@ For example, a library working with different databases can have an interface of
 
 ```kotlin
 sealed interface DBResponse {
-	operator fun <T> get(columnName: String): Sequence<T>
+    operator fun <T> get(columnName: String): Sequence<T>
 }
 ```
 
@@ -80,7 +81,7 @@ For example, this is a simple library function that saves some users to some ext
 
 ```kotlin
 fun saveUser(username: String, password: String) {
-	api.saveUser(User(username, password))
+    api.saveUser(User(username, password))
 }
 ```
 
@@ -94,7 +95,7 @@ fun saveUser(username: String, password: String) {
 	require(password.isNotBlank()) { "Password should not be blank" }
 	require(password.length > 6) { "Password should contain at least 7 letters" }
 	require(
-    	 /* Some complex check */
+        /* Some complex check */
 	) { "..." }
 
 	api.saveUser(User(username, password))
@@ -117,18 +118,18 @@ Consider the class `InputStream` with a `readByte()` method and its usage:
 
 ```kotlin
 class InputStream: Closeable {
-  private var open = true
-  fun readByte(): Byte { /* read and return one byte */}
-  override fun close(): Unit { 
+    private var open = true
+    fun readByte(): Byte { /* read and return one byte */}
+    override fun close(): Unit { 
     /* dispose of the underlying resource */ 
-    open = false
-  }
+        open = false
+    }
 }
 
 fun readTwoBytes(inputStream: InputStream): Pair<Byte, Byte>{
-  val first = inputStream.use { it.readByte() }
-  val second = inputStream.readByte()
-  return Pair(first, second)
+    val first = inputStream.use { it.readByte() }
+    val second = inputStream.readByte()
+    return Pair(first, second)
 }
 ```
 
@@ -138,8 +139,8 @@ the code of the `readByte()` function:
 
 ```kotlin
 fun readByte(): Byte {
-  check(open) {"Can't read from the already closed stream"}
-  // Read and return one byte
+    check(open) {"Can't read from the already closed stream"}
+    // Read and return one byte
 }
 ```
 
@@ -176,21 +177,21 @@ Consider this code:
 
 ```kotlin
 fun printElements(delimiter: String, vararg elements: String) {
-	for (i in elements.indices) {
-    	    print(elements[i])
-    	    if (i < elements.lastIndex) print(delimiter)
+    for (i in elements.indices) {
+        print(elements[i])
+        if (i < elements.lastIndex) print(delimiter)
 	}
 }
 
 fun printWithSpace(vararg elements: String) {
-	printElements(" ", *elements)
+    printElements(" ", *elements)
 }
 
 fun main() {
-	printWithSpace("x", "y", "z")
+    printWithSpace("x", "y", "z")
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id ="jvm-api-guide-print-elements"}
 
 The `printElements()` function prints all strings from the `vararg` argument `elements` with a delimiter, and 
 the `printWithSpace()` function calls `printElements()` with the delimiter defined as a space. The code looks innocent: 
