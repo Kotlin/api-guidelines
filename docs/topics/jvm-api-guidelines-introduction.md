@@ -56,7 +56,7 @@ fun sortDescending(data: List<String>) { … }
 fun maxLength(data: List<String>, maxLength: Int) { … }
 ```
 
-You can simplify the code above even more with the help of [extension functions](https://kotlinlang.org/docs/extensions.html):
+You can simplify the code above even more with the help of [extension functions](extensions.md):
 ```kotlin
 fun List<String>.delimit(delimiter: String): List<String> { … }
 fun List<String>.sortAscending(): List<String> { … }
