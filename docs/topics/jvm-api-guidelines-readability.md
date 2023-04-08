@@ -253,4 +253,4 @@ listOf(1, null, 2).mapNotNull { it.toString() }
 Learn about API's:
 * [Predictability](jvm-api-guidelines-predictability.md)
 * [Debuggability](jvm-api-guidelines-debuggability.md)
-* [Backward-compatibility](jvm-api-guidelines-backward-compatibility.md)
+* [Backward compatibility](jvm-api-guidelines-backward-compatibility.md)

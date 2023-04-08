@@ -203,4 +203,4 @@ the chain is, the more copies that are created, and the bigger the unexpected me
 
 Learn about API's:
 * [Debuggability](jvm-api-guidelines-debuggability.md)
-* [Backward-compatibility](jvm-api-guidelines-backward-compatibility.md)
+* [Backward compatibility](jvm-api-guidelines-backward-compatibility.md)
