@@ -1,6 +1,6 @@
 [//]: # (title: Predictability)
 
-This chapter contains the following advices:
+This chapter contains the following recommendations:
 * [Use sealed interfaces](#use-sealed-interfaces)
 * [Hide implementations with sealed classes](#hide-implementations-with-sealed-classes)
 * [Validate your inputs and state](#validate-your-inputs-and-state)

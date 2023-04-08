@@ -1,6 +1,6 @@
 [//]: # (title: Readability)
 
-This chapter contains considerations about [API consistency](#api-consistency) and the following advices:
+This chapter contains considerations about [API consistency](#api-consistency) and the following recommendations:
 * [Use builder DSL](#use-builder-dsl)
 * [Use constructor-like functions where applicable](#use-constructor-like-functions-where-applicable)
 * [Use member and extension functions appropriately](#use-member-and-extension-functions-appropriately)

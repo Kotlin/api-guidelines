@@ -1,7 +1,7 @@
 [//]: # (title: Backward compatibility)
 
 This chapter contains considerations about [backward compatibility](#backward-compatibility-definition). 
-Here are the "don't do" advices:
+Here are the "don't do" recommendations:
 * [Don't add arguments to existing API functions](#don-t-add-arguments-to-existing-api-functions)
 * [Don't use data classes in API](#don-t-use-data-classes-in-api)
 * [Don't make return types narrower](#don-t-make-return-types-narrower)
@@ -44,7 +44,7 @@ Some principles of keeping binary backward compatibility are obvious: don't just
 [deprecate](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/) them. The following sections contain less 
 well-known principles.
 
-## "Don't do" advices
+## "Don't do" recommendations
 
 ### Don't add arguments to existing API functions
 
