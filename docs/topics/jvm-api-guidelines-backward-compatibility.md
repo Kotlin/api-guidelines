@@ -267,7 +267,7 @@ Let's change the return type of the "library" function `x()` from `Number` to `I
 fun x(): Int = 3
 ```
 
-And recompile only the client: `kotlinc client.kt`. `ClientKt` doesn't work as expected anymore. It doesn't print `3` 
+And recompile only the library: `kotlinc library.kt`. `ClientKt` doesn't work as expected anymore. It doesn't print `3` 
 and throws an exception instead:
 
 ```none
@@ -308,7 +308,7 @@ so that your user is able to consciously choose what API they want to use and wh
 
 Another example of `@RequiresOptIn` is when you want to explicitly warn users about the usage of some API. For example, 
 if you maintain a library that utilizes Kotlin reflection, you can annotate classes in this library 
-with `@OptIn(RequiresFullKotlinReflection::class)`.
+with `@RequiresOptIn(RequiresFullKotlinReflection::class)`.
 
 ## Explicit API mode
 
