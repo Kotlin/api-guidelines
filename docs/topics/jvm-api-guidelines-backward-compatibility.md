@@ -2,9 +2,9 @@
 
 This chapter contains considerations about [backward compatibility](#backward-compatibility-definition). 
 Here are the "don't do" recommendations:
-* [Don't add arguments to existing API functions](#don-t-add-arguments-to-existing-api-functions)
-* [Don't use data classes in API](#don-t-use-data-classes-in-api)
-* [Don't make return types narrower](#don-t-make-return-types-narrower)
+* [Don't add arguments to existing API functions](#do-not-add-arguments-to-existing-api-functions)
+* [Don't use data classes in API](#do-not-use-data-classes-in-api)
+* [Don't make return types narrower](#do-not-make-return-types-narrower)
 
 Consider using:
 * [@PublishedApi annotation](#the-publishedapi-annotation)
@@ -46,7 +46,7 @@ well-known principles.
 
 ## "Don't do" recommendations
 
-### Don't add arguments to existing API functions
+### Do not add arguments to existing API functions
 
 Adding non-default arguments to a public API is a breaking change because the existing code won't have enough information 
 to call the updated methods. Adding even [default arguments](functions.md#default-arguments) might also break 
@@ -149,7 +149,7 @@ The method with signature `public static final int fib()` was replaced with a ne
 For JVM, it's possible to work around this: you need to add a [`@JvmOverloads`](java-to-kotlin-interop.md#overloads-generation) 
 annotation. For multiplatform projects, there is unfortunately no workaround.
 
-### Don't use data classes in API
+### Do not use data classes in API
 
 [Data classes](data-classes.md) are tempting to use because they are short, concise, and have some functionality 
 out of the box. However, due to some specifics of how data classes work, it's better not to use them in library APIs. 
@@ -232,7 +232,7 @@ In addition, if you add a field into the class's body, you have to override the 
 >
 {type="warning"}
 
-### Don't make return types narrower
+### Do not make return types narrower
 
 Sometimes, especially when you don't use [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors), 
 a return type declaration can change implicitly. But even if it's not the case, you might want to narrow the signature. 
