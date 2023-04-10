@@ -384,11 +384,11 @@ For example, consider this code:
 class Calculator {
     fun add(a: Int, b: Int): Int {
         return a + b
-	}
+    }
 
-	fun multiply(a: Int, b: Int): Int {
+    fun multiply(a: Int, b: Int): Int {
         return a * b
-	}
+    }
 }
 ```
 
@@ -396,17 +396,17 @@ If you add a new method without breaking the compatibility like this:
 
 ```kotlin
 class Calculator {
-	fun add(a: Int, b: Int): Int {
+    fun add(a: Int, b: Int): Int {
         return a + b
-	}
+    }
 
-	fun multiply(a: Int, b: Int): Int {
+    fun multiply(a: Int, b: Int): Int {
         return a * b
-	}
+    }
 
-	fun divide(a: Int, b: Int): Int {
+    fun divide(a: Int, b: Int): Int {
         return a / b
-	}
+    }
 }
 ```
 

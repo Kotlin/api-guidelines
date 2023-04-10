@@ -90,15 +90,15 @@ check that `username` is unique and not empty even if you have already defined t
 
 ```kotlin
 fun saveUser(username: String, password: String) {
-	require(username.isNotBlank()) { "Username should not be blank" }
-	require(api.usernameAvailable(username)) { "Username $username is already taken" }
-	require(password.isNotBlank()) { "Password should not be blank" }
-	require(password.length > 6) { "Password should contain at least 7 letters" }
-	require(
+    require(username.isNotBlank()) { "Username should not be blank" }
+    require(api.usernameAvailable(username)) { "Username $username is already taken" }
+    require(password.isNotBlank()) { "Password should not be blank" }
+    require(password.length > 6) { "Password should contain at least 7 letters" }
+    require(
         /* Some complex check */
-	) { "..." }
+    ) { "..." }
 
-	api.saveUser(User(username, password))
+    api.saveUser(User(username, password))
 }
 ```
 
@@ -121,7 +121,7 @@ class InputStream: Closeable {
     private var open = true
     fun readByte(): Byte { /* Read and return one byte */}
     override fun close(): Unit { 
-    /* Dispose of the underlying resource */ 
+        /* Dispose of the underlying resource */ 
         open = false
     }
 }
@@ -180,7 +180,7 @@ fun printElements(delimiter: String, vararg elements: String) {
     for (i in elements.indices) {
         print(elements[i])
         if (i < elements.lastIndex) print(delimiter)
-	}
+    }
 }
 
 fun printWithSpace(vararg elements: String) {

@@ -41,13 +41,13 @@ A canonical example of a Kotlin builder DSL is `kotlinx.html`. Consider this exa
 
 ```kotlin
 header("modal-card-head") {
-  p("modal-card-title") {
-    +book.book.name
-  }
-  button(classes = "delete") {
-    attributes["aria-label"] = "close"
-    attributes["_"] = closeModalScript
-  }
+    p("modal-card-title") {
+        +book.book.name
+    }
+    button(classes = "delete") {
+        attributes["aria-label"] = "close"
+        attributes["_"] = closeModalScript
+    }
 }
 ```
 
@@ -55,21 +55,21 @@ It could be implemented as a traditional builder. But this is considerably more 
 
 ```kotlin
 headerBuilder()
-   .addClasses("modal-card-head")
-   .addElement(
-       pBuilder()
-           .addClasses("modal-card-title")
-           .addContent(book.book.name)
-           .build()
-   )
-   .addElement(
-       buttonBuilder()
-           .addClasses("delete")
-           .addAttribute("aria-label", "close")
-           .addAttribute("_", closeModalScript)
-           .build()
-   )
-   .build()
+    .addClasses("modal-card-head")
+    .addElement(
+        pBuilder()
+            .addClasses("modal-card-title")
+            .addContent(book.book.name)
+            .build()
+    )
+    .addElement(
+        buttonBuilder()
+            .addClasses("delete")
+            .addAttribute("aria-label", "close")
+            .addAttribute("_", closeModalScript)
+            .build()
+    )
+    .build()
 ```
 
 It has too many details that you don't necessarily need to know and requires you to build each entity at the end.
@@ -79,9 +79,9 @@ to instantiate a variable and dynamically overwrite it:
 
 ```kotlin
 var buttonBuilder = buttonBuilder()
-   .addClasses("delete")
+    .addClasses("delete")
 for((attributeName, attributeValue) in attributes){
-   buttonBuilder= buttonBuilder.addAttribute(attributeName, attributeValue)
+    buttonBuilder= buttonBuilder.addAttribute(attributeName, attributeValue)
 }
 buttonBuilder.build()
 ```
@@ -90,11 +90,11 @@ Inside the builder DSL, you can directly call a loop and all necessary DSL calls
 
 ```kotlin
 div("tags") {
-  for (genre in book.genres) {
-    span("tag is-rounded is-normal is-info is-light") {
-      +genre
+    for (genre in book.genres) {
+        span("tag is-rounded is-normal is-info is-light") {
+            +genre
+        }
     }
-  }
 }
 ```
 
@@ -189,21 +189,21 @@ For example, consider a class for a graph:
 ```kotlin
 class Graph {
     private val _vertices: MutableSet<Int> = mutableSetOf()
-	private val _edges: MutableMap<Int, MutableSet<Int>> = mutableMapOf()
+    private val _edges: MutableMap<Int, MutableSet<Int>> = mutableMapOf()
 
-	fun addVertex(vertex: Int) {
+    fun addVertex(vertex: Int) {
         _vertices.add(vertex)
-	}
+    }
 
-	fun addEdge(vertex1: Int, vertex2: Int) {
+    fun addEdge(vertex1: Int, vertex2: Int) {
         _vertices.add(vertex1)
         _vertices.add(vertex2)
         _edges.getOrPut(vertex1) { mutableSetOf() }.add(vertex2)
         _edges.getOrPut(vertex2) { mutableSetOf() }.add(vertex1)
-	}
+    }
 
-	val vertices: Set<Int> get() = _vertices
-        val edges: Map<Int, Set<Int>> get() = _edges
+    val vertices: Set<Int> get() = _vertices
+    val edges: Map<Int, Set<Int>> get() = _edges
 }
 ```
 
