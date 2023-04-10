@@ -64,7 +64,7 @@ fun fib() = … // Returns the fifth element
 Let's call this function from another file, `client.kt`:
 
 ```kotlin
-fun main(){
+fun main() {
     println(fib()) // Returns 3
 }
 ```
@@ -195,7 +195,7 @@ data class User(
     val email: String,
     val active: Boolean = true
 ) {
-    constructor(name: String, email: String): 
+    constructor(name: String, email: String) : 
             this(name, email, active = true)
 }
 ```

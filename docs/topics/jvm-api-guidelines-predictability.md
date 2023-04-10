@@ -26,12 +26,12 @@ which could break your code. Instead, you can make `interface JsonElement` _seal
 ```kotlin
 sealed interface JsonElement
 
-class JsonNumber(val value: Number): JsonElement
-class JsonObject(val values: Map<String, JsonElement>): JsonElement
-class JsonArray(val values: List<JsonElement>): JsonElement
-class JsonBoolean(val value: Boolean): JsonElement
-class JsonString(val value: String): JsonElement
-object JsonNull: JsonElement
+class JsonNumber(val value: Number) : JsonElement
+class JsonObject(val values: Map<String, JsonElement>) : JsonElement
+class JsonArray(val values: List<JsonElement>) : JsonElement
+class JsonBoolean(val value: Boolean) : JsonElement
+class JsonString(val value: String) : JsonElement
+object JsonNull : JsonElement
 ```
 
 This approach helps you avoid mistakes on both the library and client side.
@@ -40,7 +40,7 @@ The key benefit of using sealed classes comes into play when you use them in a `
 to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
 
 ```kotlin
-fun processJson(json: JsonElement) = when(json) {
+fun processJson(json: JsonElement) = when (json) {
     is JsonNumber -> { /* Process as a number */ }
     is JsonObject -> { /* Process as an object */ }
     is JsonArray -> { /* Process as an array */ }
@@ -117,16 +117,16 @@ you can't read from an already closed input stream.
 Consider the class `InputStream` with a `readByte()` method and its usage:
 
 ```kotlin
-class InputStream: Closeable {
+class InputStream : Closeable {
     private var open = true
-    fun readByte(): Byte { /* Read and return one byte */}
+    fun readByte(): Byte { /* Read and return one byte */ }
     override fun close(): Unit { 
         /* Dispose of the underlying resource */ 
         open = false
     }
 }
 
-fun readTwoBytes(inputStream: InputStream): Pair<Byte, Byte>{
+fun readTwoBytes(inputStream: InputStream): Pair<Byte, Byte> {
     val first = inputStream.use { it.readByte() }
     val second = inputStream.readByte()
     return Pair(first, second)
@@ -139,7 +139,7 @@ the code of the `readByte()` function:
 
 ```kotlin
 fun readByte(): Byte {
-    check(open) {"Can't read from the already closed stream"}
+    check(open) { "Can't read from the already closed stream" }
     // Read and return one byte
 }
 ```

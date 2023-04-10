@@ -80,8 +80,8 @@ to instantiate a variable and dynamically overwrite it:
 ```kotlin
 var buttonBuilder = buttonBuilder()
     .addClasses("delete")
-for((attributeName, attributeValue) in attributes){
-    buttonBuilder= buttonBuilder.addAttribute(attributeName, attributeValue)
+for ((attributeName, attributeValue) in attributes) {
+    buttonBuilder = buttonBuilder.addAttribute(attributeName, attributeValue)
 }
 buttonBuilder.build()
 ```
@@ -238,7 +238,7 @@ mapNotNull(transform: (T) -> R?)
 It was possible to add something like `map(filterNulls: Boolean)` and write code like this:
 
 ```kotlin
-listOf(1, null, 2).map(false){ it.toString() }
+listOf(1, null, 2).map(false) { it.toString() }
 ```
 
 From reading this code, it's tough to infer what `false` actually means. However, if you use the `mapNotNull()` function, 
