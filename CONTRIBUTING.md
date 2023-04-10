@@ -18,7 +18,7 @@ to have a relative link to the image file:
 ```
 
 However, in our case, it's not a bug, but a feature - it's enough to specify the file name only, and our documentation
-engine will link it correctly with the actual image file correctly.
+engine will link it with the actual image file correctly.
 
 You can find this and other formatting rules in the [Kotlin documentation guidelines][1] document.
 
