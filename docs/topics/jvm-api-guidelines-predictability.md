@@ -119,8 +119,9 @@ Consider the class `InputStream` with a `readByte()` method and its usage:
 ```kotlin
 class InputStream : Closeable {
     private var open = true
-    fun readByte(): Byte { /* Read and return one byte */ }
-    override fun close(): Unit {
+    fun readByte(): Byte { /* Read and return one byte */
+    }
+    override fun close() {
         /* Dispose of the underlying resource */
         open = false
     }
