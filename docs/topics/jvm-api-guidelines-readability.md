@@ -32,7 +32,7 @@ that they are all pairs, and some of them might return `null` while others might
 
 ## Use builder DSL
 
-["Builder"](https://en.wikipedia.org/wiki/Builder_pattern#:~:text=The%20builder%20pattern%20is%20a,Gang%20of%20Four%20design%20patterns) 
+["Builder"](https://en.wikipedia.org/wiki/Builder_pattern) 
 is a well-known pattern in development. It allows you to build a complex entity, not in a single expression, 
 but gradually while getting more information. When you need to use a builder, it's better to write it using builder DSL — 
 this is binary-compatible and more idiomatic.

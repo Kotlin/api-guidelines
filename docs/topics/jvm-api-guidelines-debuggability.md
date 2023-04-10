@@ -51,7 +51,7 @@ This results in improved output:
 {type="note"}
 
 Consider implementing `toString()` even if you don't think the class is going to be printed anywhere, as it can help in 
-unexpected ways. For example, inside [builders](https://en.wikipedia.org/wiki/Builder_pattern#:~:text=The%20builder%20pattern%20is%20a,Gang%20of%20Four%20design%20patterns), 
+unexpected ways. For example, inside [builders](https://en.wikipedia.org/wiki/Builder_pattern), 
 it sometimes may be important if it's the same builder or a new one.
 
 ```kotlin
