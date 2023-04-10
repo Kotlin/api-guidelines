@@ -171,7 +171,7 @@ You can write a constructor-like function to lower the [cognitive complexity](jv
 of your code and reduce the size of your API:
 
 ```kotlin
-fun <T>  List(): List<T> = EmptyList
+fun <T> List(): List<T> = EmptyList
 
 // Usage of the code above:
 public fun <T> listOf(vararg elements: T): List<T> =

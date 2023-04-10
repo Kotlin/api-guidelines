@@ -195,7 +195,7 @@ data class User(
     val email: String,
     val active: Boolean = true
 ) {
-    constructor(name: String, email: String) : 
+    constructor(name: String, email: String) :
             this(name, email, active = true)
 }
 ```

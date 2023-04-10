@@ -120,8 +120,8 @@ Consider the class `InputStream` with a `readByte()` method and its usage:
 class InputStream : Closeable {
     private var open = true
     fun readByte(): Byte { /* Read and return one byte */ }
-    override fun close(): Unit { 
-        /* Dispose of the underlying resource */ 
+    override fun close(): Unit {
+        /* Dispose of the underlying resource */
         open = false
     }
 }
