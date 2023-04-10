@@ -26,7 +26,7 @@ The output of this code is not very useful:
 
 Neither is the information provided in the debug tool window:
 
-<img src="vector-objects-in-debug.png" alt="Vector class objects in the debug tool window" width="500"/>
+<img src="../images/../images/vector-objects-in-debug.png" alt="Vector class objects in the debug tool window" width="500"/>
 
 To make both logging and debugging much more readable, add a simple `toString()` implementation like this:
 
@@ -42,7 +42,7 @@ This results in improved output:
 [Vector2D(x=1, y=1), Vector2D(x=2, y=2), Vector2D(x=3, y=3), ...
 ```
 
-<img src="improved-output-of-vector-objects-in-debug.png" alt="Improved output of vector class objects in the debug tool window" width="500"/>
+<img src="../images/improved-output-of-vector-objects-in-debug.png" alt="Improved output of vector class objects in the debug tool window" width="500"/>
 
 > It might seem a good idea to use [data classes](data-classes.md) because they have a `toString()` method automatically. 
 > In the [Backward compatibility](jvm-api-guidelines-backward-compatibility.md) section of this guide, you'll learn 
@@ -83,12 +83,12 @@ fun person(personBuilder: PersonBuilder.() -> Unit = {}): Person {
 
 The intended use of the code above is the following:
 
-<img src="breakpoint-for-person.png" alt="Usage of the person DSL and a breakpoint" width="500"/>
+<img src="../images/breakpoint-for-person.png" alt="Usage of the person DSL and a breakpoint" width="500"/>
 
 If you set a breakpoint on the line after a closing bracket of the first `child` (as on the picture above), you see 
 a non-descriptive string in debug output:
 
-<img src="debug-person-builder.png" alt="Result of a PersonBuilder debugging" width="500"/>
+<img src="../images/debug-person-builder.png" alt="Result of a PersonBuilder debugging" width="500"/>
 
 If you add a simple `toString()` implementation like this:
 
@@ -100,7 +100,7 @@ override fun toString(): String {
 
 The debug data becomes much clearer:
 
-<img src="debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="700"/>
+<img src="../images/debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="700"/>
 
 You can also see immediately which fields are set and which are not.
 
