@@ -122,7 +122,7 @@ class InputStream : Closeable {
     fun readByte(): Byte { /* Read and return one byte */
     }
     override fun close() {
-        /* Dispose of the underlying resource */
+        // Dispose of the underlying resource
         open = false
     }
 }
