@@ -4,8 +4,8 @@ This chapter contains the following recommendations:
 * [Use sealed interfaces](#use-sealed-interfaces)
 * [Hide implementations with sealed classes](#hide-implementations-with-sealed-classes)
 * [Validate your inputs and state](#validate-your-inputs-and-state)
-  * [Validate with the require() function](#validate-with-the-require-function)
-  * [Validate with the check() function](#validate-with-the-check-function)
+  * [Validate inputs with the require() function](#validate-inputs-with-the-require-function)
+  * [Validate state with the check() function](#validate-state-with-the-check-function)
 * [Avoid arrays in public signatures](#avoid-arrays-in-public-signatures)
 * [Avoid varargs](#avoid-varargs)
 
@@ -72,7 +72,7 @@ accepting responses, it can cause an error. Using sealed interfaces and classes 
 
 ## Validate your inputs and state
 
-### Validate with the require() function
+### Validate inputs with the require() function
 
 It's possible to misuse an API. To help your users work with your API correctly, you should validate inputs and the internal 
 state as early as possible with the [require()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function.
@@ -109,7 +109,7 @@ of an exception, it is an `IllegalArgumentException` with a meaningful message, 
 >
 {type="tip"}
 
-### Validate with the check() function
+### Validate state with the check() function
 
 The same recommendations apply to checking the internal state. The most obvious example is `InputStream` because 
 you can't read from an already closed input stream.
