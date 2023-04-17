@@ -230,9 +230,9 @@ that contains the action of the `Boolean` argument and give this function a desc
 For example, in the standard library there are two functions for `map()`:
 
 ```kotlin
-map(transform: (T) -> R)
+fun map(transform: (T) -> R): List<R>
 
-mapNotNull(transform: (T) -> R?)
+fun mapNotNull(transform: (T) -> R?): List<R>
 ```    
 
 It was possible to add something like `map(filterNulls: Boolean)` and write code like this:
