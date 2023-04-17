@@ -11,7 +11,7 @@ You can read it at [kotl.in/api-guide](https://kotl.in/api-guide)
 ## Discussion
 
 You are welcome to join the discsussion about existing guidelines
-or to propose a new one. Feel free to join the [discussions](https://github.com/Kotlin/api-guidelines) or
+or to propose a new one. Feel free to join the [discussions](https://github.com/Kotlin/api-guidelines/discussions) or
 submit your requests to [issues](https://github.com/Kotlin/api-guidelines/issues/).
 
 ## Contributing
