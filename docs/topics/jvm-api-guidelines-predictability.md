@@ -65,10 +65,10 @@ sealed interface DBResponse {
 }
 ```
 
-Exposing this interface implementation – for example, `SQLiteResponse` or `MongoResponse` – to API users is 
+Exposing this interface implementation, for example, `SQLiteResponse` or `MongoResponse`, to API users is 
 a **leaky abstraction**, and it complicates support of this API. In such a library, you might handle only your implementations 
-of `DBResponse`. If, at some moment, a user puts their implementation of `DBResponse` into a library's method 
-accepting responses, it can cause an error. Using sealed interfaces and classes can protect you from this.
+of `DBResponse`. If a user puts their implementation of `DBResponse` into a library's method 
+accepting responses, it can cause an error. Using sealed interfaces and classes protects you from this.
 
 ## Validate your inputs and state
 
@@ -77,7 +77,7 @@ accepting responses, it can cause an error. Using sealed interfaces and classes 
 It's possible to misuse an API. To help your users work with your API correctly, you should validate inputs and the internal 
 state as early as possible with the [require()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function.
 
-For example, this is a simple library function that saves some users to some external API:
+For example, this is a simple library function that saves users to some external API:
 
 ```kotlin
 fun saveUser(username: String, password: String) {
@@ -85,7 +85,7 @@ fun saveUser(username: String, password: String) {
 }
 ```
 
-You should perform some validation on its arguments to make sure that everything behaves as expected. For example, 
+You should perform validation on the function's arguments to make sure that everything behaves as expected. For example, 
 check that `username` is unique and not empty even if you have already defined these constraints in your database:
 
 ```kotlin

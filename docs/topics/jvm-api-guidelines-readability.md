@@ -74,7 +74,7 @@ headerBuilder()
 
 It has too many details that you don't necessarily need to know and requires you to build each entity at the end.
 
-The situation worsens further if you need to generate something dynamically in a loop. In this scenario, you have 
+The situation worsens further if you need to generate builder's content dynamically in a loop. In this scenario, you have 
 to instantiate a variable and dynamically overwrite it:
 
 ```kotlin
@@ -119,11 +119,11 @@ fun a(block: A.() -> Unit): A
 
 ## Use constructor-like functions where applicable
 
-Sometimes, it makes sense to simplify your API's appearance by using constructor-like functions. A constructor-like function 
-is a function whose name starts with a capital letter so it looks like a constructor. This approach can make your library 
+Sometimes, you can simplify your API's appearance by using constructor-like functions. A constructor-like function 
+is a function whose name starts with a capital letter, so it looks like a constructor. This approach can make your library 
 easier to understand.
 
-For example, you want to introduce some [Option type](https://en.wikipedia.org/wiki/Option_type) in your library:
+For example, you want to introduce an [Option type](https://en.wikipedia.org/wiki/Option_type) in your library:
 
 ```kotlin
 sealed interface Option<T>
@@ -131,8 +131,8 @@ class Some<T : Any>(val t: T) : Option<T>
 object None : Option<Nothing>
 ```
 
-You can define implementations of all the `Option` interface methods — `map()`, `flatMap()`, and so on. But each time 
-your API users create such an `Option`, they must write some logic and check what they create. For example:
+You can define implementations of all the `Option` interface methods &mdash; `map()`, `flatMap()`, and so on. But each time 
+your API users create such an `Option`, they must write extra logic to check what they create. For example:
 
 ```kotlin
 fun findById(id: Int): Option<Person> {
@@ -151,10 +151,10 @@ fun <T> Option(t: T?): Option<out T & Any> =
 fun findById(id: Int): Option<Person> = Option(db.personById(id))
 ```
 
-Now, creating a valid `Option` is a no-brainer: just call `Option(x)` and you have a null-safe, purely functional Option idiom.
+Now, creating a valid `Option` is a no-brainer &mdash; just call `Option(x)` and you have a null-safe, purely functional Option idiom.
 
-Another use case for using a constructor-like function is when you need to return some "hidden" things: a private instance, 
-or some internal object. For example, let's look at a method from the standard library:
+Another use case for using a constructor-like function is when you need to return "hidden" things: a private instance, 
+or an internal object. For example, let's look at a method from the standard library:
 
 ```kotlin
 public fun <T> listOf(vararg elements: T): List<T> =
@@ -223,7 +223,7 @@ So, only properties, overrides, and accessors should be members.
 ## Avoid using Boolean arguments in functions
 
 It's almost impossible to understand what the purpose of a `Boolean` argument is just by reading code anywhere except 
-in IDEs, for example, on some version control system sites. Using [named arguments](functions.md#named-arguments) can help 
+in IDEs, for example, on a version control system site. Using [named arguments](functions.md#named-arguments) can help 
 to clarify this, but for now in IDEs, there is no way to force developers to use them. Another option is to create a function 
 that contains the action of the `Boolean` argument and give this function a descriptive name.
 
@@ -235,7 +235,7 @@ fun map(transform: (T) -> R): List<R>
 fun mapNotNull(transform: (T) -> R?): List<R>
 ```    
 
-It was possible to add something like `map(filterNulls: Boolean)` and write code like this:
+It is possible to add something like `map(filterNulls: Boolean)` and write code like this:
 
 ```kotlin
 listOf(1, null, 2).map(false) { it.toString() }

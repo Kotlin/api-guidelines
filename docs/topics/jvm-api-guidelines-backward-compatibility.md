@@ -53,7 +53,7 @@ to call the updated methods. Adding even [default arguments](functions.md#defaul
 your users' code.
 
 Breaking backward compatibility is shown below in an example of two classes: `lib.kt` representing a "library", 
-`client.kt` representing some "client" of this "library". This construct for libraries and their clients is common 
+`client.kt` representing a "client" of this "library". This construct for libraries and their clients is common 
 in real-world applications. In this example, the "library" has one function that computes the fifth member 
 of the Fibonacci sequence. The file `lib.kt` contains:
 
@@ -147,12 +147,12 @@ public final class LibKt {
 The method with signature `public static final int fib()` was replaced with a new method with signature 
 `public static final int fib(int)` . At the same time, a proxy method `fib$default` delegates the execution to `fib(int)`. 
 For JVM, it's possible to work around this: you need to add a [`@JvmOverloads`](java-to-kotlin-interop.md#overloads-generation) 
-annotation. For multiplatform projects, there is unfortunately no workaround.
+annotation. For multiplatform projects, there is no workaround.
 
 ### Don't use data classes in API
 
-[Data classes](data-classes.md) are tempting to use because they are short, concise, and have some functionality 
-out of the box. However, due to some specifics of how data classes work, it's better not to use them in library APIs. 
+[Data classes](data-classes.md) are tempting to use because they are short, concise, and provide some nice functionality 
+out of the box. However, due to specifics of how data classes work, it's better not to use them in library APIs. 
 Almost any change makes the API not backward compatible.
 
 Usually, it's hard to predict how you will need to change a class over time. Even if today you think that it's self-contained, 
@@ -170,7 +170,7 @@ data class User(
 )
 ```
 
-For example, over some time, you understand that users should go through an activation procedure, so you want to add 
+For example, over time, you understand that users should go through an activation procedure, so you want to add 
 a new field, "active" with a default value equal to "true". This new field should allow the existing code to work 
 mostly without changes.
 
@@ -236,7 +236,7 @@ In addition, if you add a field into the class's body, you have to override the 
 
 Sometimes, especially when you don't use [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors), 
 a return type declaration can change implicitly. But even if it's not the case, you might want to narrow the signature. 
-For example, sometimes you realize that you need index access to the elements of your collection and want to change 
+For example, if you realize that you need index access to the elements of your collection and want to change 
 the return type from `Collection` to `RandomAccess`. This section describes why it is a bad idea for a library author 
 to make such a change.
 
@@ -314,8 +314,8 @@ with `@OptIn(RequiresFullKotlinReflection::class)`.
 
 You should try to keep your API as transparent as possible. To force the API to be transparent, use the [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors).
 
-Kotlin gives you vast freedom in how you can write code. It is possible not to define types, omit visibility declarations, 
-or omit documentation for something. The explicit API mode forces you as a developer to make implicit things explicit. 
+Kotlin gives you vast freedom in how you can write code. It is possible to omit type definitions, omit visibility declarations, 
+or omit documentation. The explicit API mode forces you as a developer to make implicit things explicit. 
 By the link above, you can find out how to enable it. Let's try to understand why you might need it:
 
 1. Without an explicit API, it's easier to break backward compatibility:
@@ -382,13 +382,8 @@ For example, consider this code:
 
 ```kotlin
 class Calculator {
-    fun add(a: Int, b: Int): Int {
-        return a + b
-    }
-
-    fun multiply(a: Int, b: Int): Int {
-        return a * b
-    }
+    fun add(a: Int, b: Int): Int = a + b
+    fun multiply(a: Int, b: Int): Int = a * b
 }
 ```
 
@@ -396,17 +391,9 @@ If you add a new method without breaking the compatibility like this:
 
 ```kotlin
 class Calculator {
-    fun add(a: Int, b: Int): Int {
-        return a + b
-    }
-
-    fun multiply(a: Int, b: Int): Int {
-        return a * b
-    }
-
-    fun divide(a: Int, b: Int): Int {
-        return a / b
-    }
+    fun add(a: Int, b: Int): Int = a + b
+    fun multiply(a: Int, b: Int): Int = a * b
+    fun divide(a: Int, b: Int): Int = a / b
 }
 ```
 
