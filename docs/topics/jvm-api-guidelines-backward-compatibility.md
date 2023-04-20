@@ -314,8 +314,8 @@ with `@OptIn(RequiresFullKotlinReflection::class)`.
 
 You should try to keep your API as transparent as possible. To force the API to be transparent, use the [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors).
 
-Kotlin gives you vast freedom in how you can write code. It is possible to omit type definitions, omit visibility declarations, 
-or omit documentation. The explicit API mode forces you as a developer to make implicit things explicit. 
+Kotlin gives you vast freedom in how you can write code. It is possible to omit type definitions, visibility declarations, 
+or documentation. The explicit API mode forces you as a developer to make implicit things explicit. 
 By the link above, you can find out how to enable it. Let's try to understand why you might need it:
 
 1. Without an explicit API, it's easier to break backward compatibility:
