@@ -131,7 +131,7 @@ class Some<T : Any>(val t: T) : Option<T>
 object None : Option<Nothing>
 ```
 
-You can define implementations of all the `Option` interface methods &mdash; `map()`, `flatMap()`, and so on. But each time 
+You can define implementations of all the `Option` interface methods – `map()`, `flatMap()`, and so on. But each time 
 your API users create such an `Option`, they must write extra logic to check what they create. For example:
 
 ```kotlin
@@ -151,7 +151,7 @@ fun <T> Option(t: T?): Option<out T & Any> =
 fun findById(id: Int): Option<Person> = Option(db.personById(id))
 ```
 
-Now, creating a valid `Option` is a no-brainer &mdash; just call `Option(x)` and you have a null-safe, purely functional Option idiom.
+Now, creating a valid `Option` is a no-brainer – just call `Option(x)` and you have a null-safe, purely functional Option idiom.
 
 Another use case for using a constructor-like function is when you need to return "hidden" things: a private instance, 
 or an internal object. For example, let's look at a method from the standard library:
