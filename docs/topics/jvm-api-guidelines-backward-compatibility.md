@@ -237,7 +237,7 @@ In addition, if you add a field into the class's body, you have to override the 
 Sometimes, especially when you don't use [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors), 
 a return type declaration can change implicitly. But even if it's not the case, you might want to narrow the signature. 
 For example, sometimes you realize that you need index access to the elements of your collection and want to change 
-the return type from `Collection` to `List`. Widening the return type will usually break the source compatibility, for example convertting from `List` to `Collection` will break all the code using index access. Narrowing return types is usually source-compatible change, but it breaks the binary compatibility and here we will describe how.
+the return type from `Collection` to `List`. Widening a return type usually breaks source compatibility; for example, converting from `List` to `Collection` breaks all the code that uses index access. Narrowing return types is usually a source-compatible change, but it breaks binary compatibility, and this section describes how.
 
 Consider a library function in the `library.kt` file:
 
