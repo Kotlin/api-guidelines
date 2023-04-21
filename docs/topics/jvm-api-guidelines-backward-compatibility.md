@@ -237,8 +237,9 @@ In addition, if you add a field into the class's body, you have to override the 
 Sometimes, especially when you don't use [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors), 
 a return type declaration can change implicitly. But even if it's not the case, you might want to narrow the signature. 
 For example, sometimes you realize that you need index access to the elements of your collection and want to change 
-the return type from `Collection` to `RandomAccess`. This section describes why it is a bad idea for a library author 
-to make such a change.
+the return type from `Collection` to `List`. Widening a return type usually breaks source compatibility; for example, 
+converting from `List` to `Collection` breaks all the code that uses index access. Narrowing return types is usually 
+a source-compatible change, but it breaks binary compatibility, and this section describes how.
 
 Consider a library function in the `library.kt` file:
 
@@ -375,7 +376,8 @@ user experience, as users will be able to rely on the stability and compatibilit
 ### japicmp
 
 If you target only JVM as your platform, you can also use [japicmp](https://siom79.github.io/japicmp/). japicmp operates 
-on a different level to the Binary compatibility validator: it compares two jar files –old and new– and reports incompatibilities between them.
+on a different level to the Binary compatibility validator: it compares two jar files –old and new– 
+and reports incompatibilities between them.
 
 Be aware that japicmp reports not only incompatibilities but also changes that should not affect a user in any way. 
 For example, consider this code:
