@@ -31,9 +31,8 @@ Neither is the information provided in the debug tool window:
 To make both logging and debugging much more readable, add a simple `toString()` implementation like this:
 
 ```kotlin
-override fun toString(): String {
-    return "Vector2D(x=$x, y=$y)"
-}
+override fun toString(): String =
+    "Vector2D(x=$x, y=$y)"
 ```
 
 This results in improved output:
@@ -52,7 +51,7 @@ This results in improved output:
 
 Consider implementing `toString()` even if you don't think the class is going to be printed anywhere, as it can help in 
 unexpected ways. For example, inside [builders](https://en.wikipedia.org/wiki/Builder_pattern#:~:text=The%20builder%20pattern%20is%20a,Gang%20of%20Four%20design%20patterns), 
-it sometimes may be important if it's the same builder or a new one.
+it may be important to see current state of the builder.
 
 ```kotlin
 class Person(
@@ -60,9 +59,8 @@ class Person(
     val age: Int?,
     val children: List<Person>
 ) {
-    override fun toString(): String {
-        return "Person(name=$name, age=$age, children=$children)"
-    }
+    override fun toString(): String =
+        "Person(name=$name, age=$age, children=$children)"
 }
 
 class PersonBuilder {
@@ -93,9 +91,8 @@ a non-descriptive string in debug output:
 If you add a simple `toString()` implementation like this:
 
 ```kotlin
-override fun toString(): String {
-    return "PersonBuilder(name=$name, age=$age, children=$children)"
-}
+override fun toString(): String =
+    "PersonBuilder(name=$name, age=$age, children=$children)"
 ```
 
 The debug data becomes much clearer:
@@ -104,7 +101,7 @@ The debug data becomes much clearer:
 
 You can also see immediately which fields are set and which are not.
 
-> Be careful with exposing fields in `toString()` because sometimes it's easy to get a `StackOverflowException`. 
+> Be careful with exposing fields in `toString()` because it might be easy to get a `StackOverflowException`. 
 > For example, if `children` has a reference to a parent, that would create a circular reference. Also, be careful about 
 > exposing lists and maps as `toString()` can expand a deeply-nested hierarchy.
 >
