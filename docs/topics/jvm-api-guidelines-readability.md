@@ -235,7 +235,7 @@ fun map(transform: (T) -> R): List<R>
 fun mapNotNull(transform: (T) -> R?): List<R>
 ```    
 
-It is possible to add something like `map(filterNulls: Boolean)` and write code like this:
+It was possible to add something like `map(filterNulls: Boolean)` and write code like this:
 
 ```kotlin
 listOf(1, null, 2).map(false) { it.toString() }
