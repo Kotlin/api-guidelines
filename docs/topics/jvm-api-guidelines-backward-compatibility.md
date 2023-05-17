@@ -309,7 +309,7 @@ so that your user is able to consciously choose what API they want to use and wh
 
 Another example of `@RequiresOptIn` is when you want to explicitly warn users about the usage of some API. For example, 
 if you maintain a library that utilizes Kotlin reflection, you can annotate classes in this library 
-with `@OptIn(RequiresFullKotlinReflection::class)`.
+with `@RequiresFullKotlinReflection`.
 
 ## Explicit API mode
 
