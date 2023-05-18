@@ -43,15 +43,15 @@ This results in improved output:
 
 <img src="improved-output-of-vector-objects-in-debug.png" alt="Improved output of vector class objects in the debug tool window" width="500"/>
 
-> It might seem a good idea to use [data classes](data-classes.md) because they have a `toString()` method automatically. 
+> It might seem like a good idea to use [data classes](data-classes.md) because they have a `toString()` method automatically. 
 > In the [Backward compatibility](jvm-api-guidelines-backward-compatibility.md) section of this guide, you'll learn 
-> [why it's better not to do this](jvm-api-guidelines-backward-compatibility.md#don-t-use-data-classes-in-api).
+> [why it's better not to do this](jvm-api-guidelines-backward-compatibility.md#don-t-use-data-classes-in-an-api).
 >
 {type="note"}
 
 Consider implementing `toString()` even if you don't think the class is going to be printed anywhere, as it can help in 
 unexpected ways. For example, inside [builders](https://en.wikipedia.org/wiki/Builder_pattern#:~:text=The%20builder%20pattern%20is%20a,Gang%20of%20Four%20design%20patterns), 
-it may be important to see current state of the builder.
+it may be important to see the current state of the builder.
 
 ```kotlin
 class Person(
@@ -83,7 +83,7 @@ The intended use of the code above is the following:
 
 <img src="breakpoint-for-person.png" alt="Usage of the person DSL and a breakpoint" width="500"/>
 
-If you set a breakpoint on the line after a closing bracket of the first `child` (as on the picture above), you see 
+If you set a breakpoint on the line after the closing brace of the first `child` (as on the picture above), you see
 a non-descriptive string in debug output:
 
 <img src="debug-person-builder.png" alt="Result of a PersonBuilder debugging" width="500"/>
@@ -103,10 +103,10 @@ You can also see immediately which fields are set and which are not.
 
 > Be careful with exposing fields in `toString()` because it might be easy to get a `StackOverflowException`. 
 > For example, if `children` has a reference to a parent, that would create a circular reference. Also, be careful about 
-> exposing lists and maps as `toString()` can expand a deeply-nested hierarchy.
+> exposing lists and maps, as `toString()` can expand a deeply nested hierarchy.
 >
 {type = "warning"}
 
 ## What's next?
 
-Learn about API's [backward compatibility](jvm-api-guidelines-backward-compatibility.md)
+Learn about APIs' [backward compatibility](jvm-api-guidelines-backward-compatibility.md).
