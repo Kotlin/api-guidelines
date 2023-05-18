@@ -109,4 +109,4 @@ You can also see immediately which fields are set and which are not.
 
 ## What's next?
 
-Learn about APIs' [backward compatibility](jvm-api-guidelines-backward-compatibility.md)
+Learn about APIs' [backward compatibility](jvm-api-guidelines-backward-compatibility.md).
