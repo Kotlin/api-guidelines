@@ -37,7 +37,7 @@ object JsonNull : JsonElement
 
 This approach helps you avoid mistakes on both the library and the client sides.
 
-The key benefit of using sealed classes comes into play when you use them in a `when` expression. If it's possible 
+The key benefit of using sealed types comes into play when you use them in a `when` expression. If it's possible 
 to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
 
 ```kotlin
@@ -66,17 +66,17 @@ sealed interface DBResponse {
 }
 ```
 
-Exposing this interface implementation, such as `SQLiteResponse` or `MongoResponse`, to API users is 
-a **leaky abstraction**, and it complicates support of this API. In such a library, you might handle only your 
-implementations of `DBResponse`. If a user puts their implementation of `DBResponse` into a library's method 
+Exposing implementations of this interface, such as `SQLiteResponse` or `MongoResponse`, to API users is 
+a **leaky abstraction**, and it complicates the support of this API. In such a library, you might handle only your 
+implementations of `DBResponse`. If a user passes their implementation of `DBResponse` into a library's method 
 accepting responses, it can cause an error. Using sealed interfaces and classes prevents this.
 
 ## Validate your inputs and state
 
 ### Validate inputs with the require() function
 
-It's possible to misuse an API. To help your users work with your API correctly, you should validate inputs and 
-the internal state as early as possible with the [require()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) 
+It's possible to misuse an API. To help your users work with your API correctly, you should validate inputs
+as early as possible with the [require()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) 
 function.
 
 For example, this is a simple library function that saves users to some external API:
@@ -121,8 +121,7 @@ Consider the class `InputStream` with a `readByte()` method and its usage:
 ```kotlin
 class InputStream : Closeable {
     private var open = true
-    fun readByte(): Byte { /* Read and return one byte */
-    }
+    fun readByte(): Byte { /* Read and return one byte */ }
     override fun close() {
         // Dispose of the underlying resource
         open = false
