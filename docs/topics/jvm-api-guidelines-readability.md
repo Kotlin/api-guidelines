@@ -143,7 +143,7 @@ fun findById(id: Int): Option<Person> {
 }
 ```
 
-To save yours users from having to write the same check each time, you can add just one line to your API:
+To save your users from having to write the same check each time, you can add just one line to your API:
 
 ```kotlin
 fun <T> Option(t: T?): Option<out T & Any> =

@@ -126,7 +126,7 @@ Let's call [`javap`](https://docs.oracle.com/en/java/javase/20/docs/specs/man/ja
 the changes:
 
 ```none
-❯ javap FiLibKtbKt
+❯ javap LibKt
 Compiled from "lib.kt"
 public final class LibKt {
  public static final int fib();
