@@ -169,7 +169,7 @@ fun main() { Test.values()[0] = Test.B }
 If you cache values inside the enum, the cache will be corrupted after running the code above. If the values are not 
 cached, it's an additional runtime overhead for each call of the `values()` function.
 
-This is the reason why Kotlin deprecated the `values()` functions since version 1.9 and introduced the `entries()`
+This is the reason why Kotlin deprecated the `values()` functions since version 1.9 and [introduced](https://youtrack.jetbrains.com/issue/KT-48872/Provide-modern-and-performant-replacement-for-Enum.values) the `entries()`
 function, that returns an immutable set.
 
 ## Avoid varargs
