@@ -221,7 +221,7 @@ fun Graph.getNumberOfEdges(): Int = edges.size
 fun Graph.getDegree(vertex: Int): Int = edges[vertex]?.size ?: 0
 ```
 
-Only properties, overrides, and accessors should be members.
+Only properties, overrides and accessors should be members.
 
 ## Avoid using Boolean arguments in functions
 
