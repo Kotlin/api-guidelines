@@ -204,6 +204,50 @@ you just pass elements from `printWithSpace()` to `printElements()`. Without the
 but with it, the **array is actually copied** before being passed to the `printElements()` function. The longer 
 the chain is, the more copies are created and the bigger the unexpected memory overhead is.
 
+## Declare your deprecation policy
+
+Even if you intend never to break the [backward compatibility](jvm-api-guidelines-backward-compatibility.md), you should be ready when it happens for whatever reasons.
+
+Kotlin has an unambiguous [deprecation policy for libraries](https://kotlinfoundation.org/language-committee-guidelines/#incompatible-changes-to-the-libraries).
+
+You don't have to have the same policy. However, it would be best if you considered describing your approach to introducing backward incompatible changes. Such a policy could dramatically improve the experience of your library users.
+
+What can help you in this task is Kotlin's built-in `@Deprecated` annotation. It has a property called `level`. This `level` is one of three: `WARNING`, `ERROR`, and `HIDDEN`. It's described [here](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecation-level/). Gradually increasing the level will change the compiler's behaviour on the client side and eventually force them to change their code.
+
+For example, this code will compile and give a warning:
+```kotlin
+@Deprecated(
+    message = "Use newFunction() instead",
+    replaceWith = ReplaceWith("newFunction()"),
+    level = DeprecationLevel.WARNING
+)
+fun oldFunction() {
+    // Old implementation
+}
+fun newFunction() {
+    // New implementation
+}
+```
+
+While this code already won't compile (the IDE will still produce an error and give a helpful hint on replacement).
+```kotlin
+@Deprecated(
+    message = "Function is deprecated, Use newFunction() instead",
+    replaceWith = ReplaceWith("newFunction()"),
+    level = DeprecationLevel.ERROR
+)
+fun oldFunction() {
+    // Old implementation
+}
+fun newFunction() {
+    // New implementation
+}
+```
+
+And on the `HIDDEN` level, it just won't find the `oldFunction` function. However, the already compiled code will continue working!
+
+Given all the tools, it's up to you how you want to introduce the deprecation cycle, but whatever you decide, please declare it explicitly.
+
 ## What's next?
 
 Learn about APIs':
