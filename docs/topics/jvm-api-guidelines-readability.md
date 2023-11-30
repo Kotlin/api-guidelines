@@ -252,6 +252,44 @@ readers will be able to understand the logic at a glance:
 listOf(1, null, 2).mapNotNull { it.toString() } 
 ```
 
+## Use typed units
+
+Use typed units for anything having units of measure. It will preserve your users from order of magnitude mistakes.
+
+Let's look at the following function:
+
+```kotlin
+fun sleep(time: Long) {
+    // implementation
+}
+```
+
+It has an obvious flaw: we don't know in which units should we pass an argument there. In `bash` it would be seconds, in `Java` probably milliseconds, somewhere it could be even nanoseconds. It's easy to make a mistake for 3 orders of magnitude!
+
+Of course we can write a self-ducumenting code:
+
+```kotlin
+fun sleep(millis: Long){
+    // implementation
+}
+```
+
+But this code is still imperfect. On the reader side it will require tools to understand the code. They will need to see an inlay hint or something similar to understand what's going on and even deeper analysis to underdtand if there's an error there.
+
+Instead consider adding a unit measure as an additional argument, like this:
+
+```kotlin
+fun sleep(amount: Long, unit: TimeUnit){
+    // implementation
+}
+```
+
+Here we fix all the problems at once:
+
+1. Now the reader of the consuming code clearly sees what is passed and where, and in which units
+2. The probability to make n order-of-magnitude error is significantly smaller
+3. On the library side for you it's easier to implement conversion rules
+
 ## What's next?
 
 Learn about APIs':
