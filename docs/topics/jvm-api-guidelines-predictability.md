@@ -200,7 +200,7 @@ fun main() {
 
 The `printElements()` function prints all strings from the `vararg` argument `elements` with a delimiter, and 
 the `printWithSpace()` function calls `printElements()` with the delimiter defined as a space. The code looks innocent: 
-you just pass elements from `printWithSpace()` to `printElements()`. Without the spread operator `*`, the code won't compile, 
+you just pass `elements` from `printWithSpace()` to `printElements()`. Without the spread operator `*`, the code won't compile, 
 but with it, the **array is actually copied** before being passed to the `printElements()` function. The longer 
 the chain is, the more copies are created and the bigger the unexpected memory overhead is.
 
