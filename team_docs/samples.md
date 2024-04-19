@@ -194,6 +194,31 @@ instead, the sample must only demonstrate how *some* inputs and *some* forms of
 the output are linked. Edge cases and uncommon paths can be ignored.
 However, the rough idea of what the function does must still be deducible.
 
+#### Properties and fields
+
+Properties and fields should be treated just like functions that accept the
+class containing them as an argument; so, `val size: Int` of class `List`
+should be accompanied by the samples that would be written for
+`fun List<*>.size(): Int` according to the rules above:
+
+```kotlin
+check(listOf("a", "b", "c", "d").size == 4)
+```
+
+Mutable properties that have non-trivial setter behavior must also be treated
+as functions that perform an action:
+
+```kotlin
+val input = "Mon, 30 Jul 2008 11:05:30 GMT"
+val parsed = DateTimeComponents.Formats.RFC_1123.parse(input)
+check(parsed.monthNumber == 7)
+check(parsed.month == Month.JULY)
+parsed.month = Month.JUNE
+check(parsed.monthNumber == 6)
+check(parsed.month == Month.JUNE)
+```
+
+
 #### Entities in the same namespace
 
 These don't need to be mentioned in the top-level documentation, except when
