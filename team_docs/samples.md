@@ -1,7 +1,7 @@
 
 Guidelines for samples in documentation 
 --------------------------------------------------------
-The guideline provides a skeleton of what substitutes a good sample to the Kotlin signature. These are general recommendations, not strict rules. If ignoring some of the recommendations improves your documentation -- do that.
+The guideline provides a skeleton of what substitutes a good sample to the Kotlin API entry. These are general recommendations, not strict rules. If ignoring some of the recommendations improves your documentation -- do that.
 
 ### Benefits of the samples
 
@@ -93,6 +93,7 @@ string.contentEquals("kotlin", ignoreCase = true) // true
 ```
 
 It is immediately clear that the function behaviour can be additionally configured and how it affects the output.
+
 #### Returning an object
 
 If the output is an object, the sample must include enough usages of the object
@@ -163,6 +164,7 @@ A class consists of three parts:
 * What other entities are available in its namespace (objects, functions, etc.).
 
 It is recommended providing top-level overview in the documentation for each of the aspect, ideally with the help of inline examples
+
 #### Construction
 
 The examples for constructors should be provided in the top-level documentation
