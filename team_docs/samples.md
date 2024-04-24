@@ -195,16 +195,11 @@ instead, the sample must only demonstrate how *some* inputs and *some* forms of
 the output are linked. Edge cases and uncommon paths can be ignored.
 However, the rough idea of what the function does must still be deducible.
 
-#### Properties and fields
+#### Properties
 
-Properties and fields should be treated just like functions that accept the
-class containing them as an argument; so, `val size: Int` of class `List`
-should be accompanied by the samples that would be written for
-`fun List<*>.size(): Int` according to the rules above:
-
-```kotlin
-check(listOf("a", "b", "c", "d").size == 4)
-```
+Properties should be treated just like functions that accept the
+class containing them as an argument; The same guidelines are applicable for 
+properties as for functions.
 
 Mutable properties that have non-trivial setter behavior must also be treated
 as functions that perform an action:
@@ -218,7 +213,6 @@ parsed.month = Month.JUNE
 check(parsed.monthNumber == 6)
 check(parsed.month == Month.JUNE)
 ```
-
 
 #### Entities in the same namespace
 
