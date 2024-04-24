@@ -42,6 +42,7 @@ Samples shape the way your users use your API, so treat them as any other code i
 * It might be reasonable to provide multiple samples for a single signature -- starting from the most generic one and going down on specifics (interface implementation, error handling, pitfalls workarounds)
 
 ## Specific recommendations
+
 ### Functions returning a result
 
 A function returning a result must be accompanied by an example that clearly
