@@ -8,7 +8,7 @@
 
     <chunk include-id="api-guidelines">
         <toc-element id="api-guidelines-introduction.md" accepts-web-file-names="jvm-api-guidelines-introduction.html"/>
-        <toc-element id="api-guidelines-minimizing-mental-complexity.md"/>
+        <toc-element id="api-guidelines-minimizing-mental-complexity.md" accepts-web-file-names="jvm-api-guidelines-debuggability.html, jvm-api-guidelines-predictability.html, jvm-api-guidelines-readability.html"/>
         <toc-element id="api-guidelines-backward-compatibility.md" accepts-web-file-names="jvm-api-guidelines-backward-compatibility.html"/>
         <toc-element id="api-guidelines-informative-documentation.md"/>
     </chunk>

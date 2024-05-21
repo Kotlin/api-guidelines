@@ -6,9 +6,9 @@ The best way to achieve this is by minimizing the amount of complexity they enco
 Strategies for minimizing mental complexity include:
 
 * **Simplicity:** Strive for an API that provides the most functionality with the fewest components, reusing existing Kotlin types and structures to avoid redundancy. Where possible, create a small set of core abstractions and build additional functionality on top of them.
-* **Readability:** Write the API in a declarative style to make the code’s intent clear. Choose names for abstractions directly from the problem domain, unless it’s absolutely necessary to invent new ones. Use basic data types for their intended purposes. Clearly distinguish between core and optional functionality.
+* **Readability:** Write the API in a declarative style to make the code's intent clear. Choose names for abstractions directly from the problem domain, unless it's absolutely necessary to invent new ones. Use basic data types for their intended purposes. Clearly distinguish between core and optional functionality.
 * **Consistency:** Maintain a single, clear approach for every design aspect of your API. Use uniform naming conventions, error handling strategies, and patterns, whether they are object-oriented or functional.
-* **Predictability:** Design your library to adhere to [the ‘principle of least surprise’](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Ensure the default settings match the most common use cases, allowing users to accomplish their tasks with the simplest and shortest code. Allow extensions to your library only in clearly specified ways to maintain consistency and predictability.
+* **Predictability:** Design your library to adhere to [the ‘principle of least surprise'](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Ensure the default settings match the most common use cases, allowing users to accomplish their tasks with the simplest and shortest code. Allow extensions to your library only in clearly specified ways to maintain consistency and predictability.
 * **Debuggability:** Ensure your library aids users in troubleshooting by facilitating the extraction of information and navigation through nested function calls. When exceptions are thrown, both the type and content of the exception should match the underlying issue, providing all necessary details to effectively diagnose and resolve problems. It should be possible to capture and output the state of domain objects, and to view any intermediate representations.
 * **Testability:** Ensure that your library, as well as the code that uses it, can be easily tested.
 
@@ -19,18 +19,18 @@ The following sections give more detailed information on implementing these stra
 The fewer concepts your users need to understand and the more explicitly these are communicated, the simpler their mental 
 model is likely to be. This can be achieved by limiting the number of operations and abstractions in the API.
 
-Ensure that the [visibility](https://kotlinlang.org/docs/visibility-modifiers.html) of declarations in your library is set appropriately to keep internal implementation details 
+Ensure that the [visibility](visibility-modifiers.md) of declarations in your library is set appropriately to keep internal implementation details 
 out of the public API. Only APIs that are explicitly designed and documented for public use should be accessible to users.
 
-In the next part of the guide, we’ll discuss some guidelines for promoting simplicity.
+In the next part of the guide, we'll discuss some guidelines for promoting simplicity.
 
 ### Use explicit API mode
 
-We recommend using the [explicit API mode](https://kotlinlang.org/docs/whatsnew14.html#explicit-api-mode-for-library-authors) feature of the Kotlin compiler, which forces you to explicitly state your intentions when you’re designing the API for your library.
+We recommend using the [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors) feature of the Kotlin compiler, which forces you to explicitly state your intentions when you're designing the API for your library.
 
 With explicit API mode, you must:
 
-* Add visibility modifiers to your declarations to make them public, instead of relying on the default public visibility. This ensures that you’ve considered what you’re exposing as part of the public API.
+* Add visibility modifiers to your declarations to make them public, instead of relying on the default public visibility. This ensures that you've considered what you're exposing as part of the public API.
 * Define the types for all your public functions and properties to prevent unintended changes to your API from inferred types.
 
 ### Reuse existing concepts
@@ -52,8 +52,8 @@ build directly on or combine these core functions.
 
 For example:
 
-* In the [Kotlin Flows API](https://kotlinlang.org/docs/flow.html), common operations like [`filter`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/filter.html) and [`map`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html) are built on top of the [`transform`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/transform.html) operation.
-* In the [Kotlin Time API](https://kotlinlang.org/docs/time-measurement.html) the [`measureTime`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/measure-time.html) function utilizes [`TimeSource.Monotonic`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-source/-monotonic/).
+* In the [Kotlin Flows API](flow.md), common operations like [`filter`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/filter.html) and [`map`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html) are built on top of the [`transform`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/transform.html) operation.
+* In the [Kotlin Time API](time-measurement.md) the [`measureTime`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/measure-time.html) function utilizes [`TimeSource.Monotonic`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-source/-monotonic/).
 
 While it's often beneficial to base additional operations on these core components, it's not always necessary. 
 You may find opportunities to introduce optimized or platform-specific variations that expand the functionality or adapt more broadly to different inputs.
@@ -76,9 +76,9 @@ Libraries often provide advanced operators that allow for customization.
 For example, an operation might permit users to supply their own data structures, networking channels, timers, or lifecycle observers. 
 However, introducing these customization options through additional function parameters can significantly increase the complexity of the API.
 
-Instead of adding more parameters for customization, it’s more effective to design an API where different behaviors can 
+Instead of adding more parameters for customization, it's more effective to design an API where different behaviors can 
 be composed together. 
-For example, in the coroutine Flows API both [buffering](https://kotlinlang.org/docs/flow.html#buffering) and [conflation](https://kotlinlang.org/docs/flow.html#conflation) are implemented as separate functions. 
+For example, in the coroutine Flows API both [buffering](flow.md#buffering) and [conflation](flow.md#conflation) are implemented as separate functions. 
 These can be chained together with more basic operations like [`filter`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/filter.html) and [`map`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html), instead of each basic operation accepting parameters to control buffering and conflation.
 
 Another example involves the [Modifiers API in Jetpack Compose](https://developer.android.com/develop/ui/compose/modifiers). 
@@ -131,7 +131,7 @@ fun Application.module() {
 This sets up an application, installing the `ContentNegotiation` plugin configured to use Json serialization, and sets up
 routing so that the application responds to requests on various `/article` endpoints.
 
-For a detailed description of creating DSLs, see [Type-safe builders](https://kotlinlang.org/docs/type-safe-builders.html).
+For a detailed description of creating DSLs, see [Type-safe builders](type-safe-builders.md).
 The following points are worth noting in the context of creating libraries:
 
 * The functions used in the DSL are builder functions, which take a lambda with receiver as the final parameter. 
@@ -139,8 +139,8 @@ This design allows these functions to be called without parentheses, making the 
 The lambda being passed can be used to configure the entity being created. In the example above the lambda passed to the `routing` function is used to configure the details of the routing.
 * Factory functions that create instances of classes should have the same name as the return type and start with a capital letter. 
 You can see this in the sample above with the creation of the `Json` instance. 
-These functions may still take lambda parameters for configuration. For more information, see [Coding conventions](https://kotlinlang.org/docs/coding-conventions.html#function-names).
-* As it’s not possible to ensure that required properties have been set within the lambda supplied to a builder function
+These functions may still take lambda parameters for configuration. For more information, see [Coding conventions](coding-conventions.md#function-names).
+* As it's not possible to ensure that required properties have been set within the lambda supplied to a builder function
 at compile time, we recommend passing required values as function parameters.
 
 Using DSLs to build objects not only improves readability but also improves backward compatibility,
@@ -157,7 +157,7 @@ This function could replace the `Json{}` DSL builder. However, the DSL approach 
 
 ### Use extension functions and properties
 
-We recommend using [extension functions and properties](https://kotlinlang.org/docs/extensions.html) to improve readability.
+We recommend using [extension functions and properties](extensions.md) to improve readability.
 
 Classes and interfaces should define the core concept of a type. 
 Additional functionality and information should be written as extension functions and properties. 
@@ -238,19 +238,19 @@ This approach is useful if there are several modes of operation, or if you expec
 
 ### Use numeric types appropriately
 
-Kotlin defines a set of numeric types that you may use as part of your API. Here’s how to use them appropriately:
+Kotlin defines a set of numeric types that you may use as part of your API. Here's how to use them appropriately:
 
 * Use the `Int`,` Long` and `Double` types as arithmetic types. They represent values with which calculations are performed.
 * Avoid using arithmetic types for non-arithmetic entities. For example, if you represent an ID as a `Long` your users
 might be tempted to compare IDs, on the assumption they are assigned in order.
 This could lead to unreliable or meaningless results, or create dependencies on implementations that could change without warning.
-A better strategy is to define a specialized class for the ID abstraction. You could use [Inline value classes](https://kotlinlang.org/docs/inline-classes.html) to build such abstractions without affecting performance. See the  [`Duration`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) class for an example.
+A better strategy is to define a specialized class for the ID abstraction. You could use [Inline value classes](inline-classes.md) to build such abstractions without affecting performance. See the  [`Duration`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) class for an example.
 * The `Byte`, `Float` and `Short` types are memory layout types. They are used to restrict the amount of memory available
 for storing a value, such as in caches or when transmitting data over a network.
 These types should only be used when the underlying data reliably fits within that type, and calculations are not required.
 * The unsigned integer types `UByte`, `UShort`, `UInt` and `ULong` should be used to utilize the full range of positive
 values available in a given format. They are suitable for scenarios requiring values beyond the range of signed types or
-for interoperability with native libraries. However, avoid using them in situations where the domain only requires [non-negative integers](https://kotlinlang.org/docs/unsigned-integer-types.html#non-goals).
+for interoperability with native libraries. However, avoid using them in situations where the domain only requires [non-negative integers](unsigned-integer-types.md#non-goals).
 
 ## Consistency
 
@@ -387,7 +387,7 @@ val client = HttpClient(CIO) {
 Users can choose which plugins to install or create their own using the [separate API for defining client plugins](https://ktor.io/docs/client-custom-plugins.html).
 
 Additionally, users can define extension functions and properties for types in the library.
-As a library author, you can make this easier by [designing with extensions](#use-extension-functions-and-properties) in mind, and ensuring your library’s types have clear core concepts.
+As a library author, you can make this easier by [designing with extensions](#use-extension-functions-and-properties) in mind, and ensuring your library's types have clear core concepts.
 
 ### Prevent unwanted and invalid extensions
 
@@ -419,7 +419,7 @@ When managing multiple values, your API should, whenever possible, accept and/or
 Mutable collections are not thread-safe and introduce complexity and unpredictability into your library.
 
 For example, if a user modifies a mutable collection returned from an API entry point,
-it will be unclear whether they are modifying the implementation’s structure or a copy.
+it will be unclear whether they are modifying the implementation's structure or a copy.
 Similarly, if users can modify the values within a collection after passing it to a library, it will be unclear whether
 this affects the implementation.
 
@@ -475,7 +475,7 @@ fun saveUser(username: String, password: String) {
 Error messages should include relevant inputs to help users determine the cause of the failure, as shown above by the
 error message for usernames that contain invalid characters, which includes the incorrect username.
 An exception to this practice is when including a value in the error message could reveal information that might be used
-maliciously as part of a security exploit, which is why the error message for the password’s length does not include the password input.
+maliciously as part of a security exploit, which is why the error message for the password's length does not include the password input.
 
 Similarly, the `check` function throws an [`IllegalStateException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/#kotlin.IllegalStateException) if its condition is `false`.
 Use this function to verify the state of an instance, as shown in the example below:
@@ -508,7 +508,7 @@ Your library can follow these best practices to make debugging it easier.
 ### Provide a toString method for stateful types
 
 For every type that contains state, provide a meaningful `toString` implementation.
-This implementation should return an intelligible representation of the instance’s current content, even for internal types.
+This implementation should return an intelligible representation of the instance's current content, even for internal types.
 
 Since `toString` representations of types are often written to logs, consider security when implementing this method and
 avoid returning sensitive user data.
@@ -567,7 +567,7 @@ override fun toString(): String {
 
 ![Adding toString results in a much better result](debugger-result-tostring.png){width=700}
 
-While it might be tempting to use data classes to gain a `toString` method automatically, it’s not  recommended for backward compatibility reasons.
+While it might be tempting to use data classes to gain a `toString` method automatically, it's not  recommended for backward compatibility reasons.
 Data classes are discussed in more detail in the [Avoid using data classes in your API](api-guidelines-backward-compatibility.md#avoid-using-data-classes-in-your-api) section.
 
 Note that the state described in the `toString` method does not need to be information from the problem domain.
@@ -627,7 +627,7 @@ This way, you can immediately see which fields are set and which are not.
 ### Adopt and document a policy for handling exceptions
 
 As discussed in the [Choose appropriate error handling mechanism](#choose-the-appropriate-error-handling-mechanism) section,
-there are occasions when it’s appropriate for your library to throw an exception to signal an error.
+there are occasions when it's appropriate for your library to throw an exception to signal an error.
 You may create your own exception types for this purpose.
 
 Libraries that abstract and simplify low-level APIs will also need to handle exceptions thrown by their dependencies.
@@ -663,7 +663,7 @@ val instant: Instant = Clock.now()
 println(instant)
 ```
 
-Any code using this API will be difficult to test, as the call to the `now()` function will always return the real current time, while in tests it’s often desirable to return fake values instead.
+Any code using this API will be difficult to test, as the call to the `now()` function will always return the real current time, while in tests it's often desirable to return fake values instead.
 
 To enable testability, the [`kotlinx-datetime`](https://github.com/Kotlin/kotlinx-datetime) library has an API that lets
 users get a `Clock` instance, and then use that to get the current time:

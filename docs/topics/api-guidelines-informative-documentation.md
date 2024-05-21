@@ -13,7 +13,7 @@ Effective documentation not only informs users but also drives the development a
 Here are several key ways documentation can guide your development process:
 
 * You should be able to explain, in a couple of paragraphs, what your library does, who will benefit from using it, and what the advantages are over alternative approaches. If you cannot do this, reconsider the scope and objectives of your project.
-* You should be able to create a "Getting Started" guide that can get a potential user up and running as quickly as possible. What counts as *quickly* will depend on the problem domain, but you can compare against similar libraries on other platforms. The guide should hook the user into a feedback loop that keeps getting easier and faster while always producing reliable results. Creating this guide will help you identify sudden increases in complexity (cliff edges) that could hinder the user’s progress.
+* You should be able to create a "Getting Started" guide that can get a potential user up and running as quickly as possible. What counts as *quickly* will depend on the problem domain, but you can compare against similar libraries on other platforms. The guide should hook the user into a feedback loop that keeps getting easier and faster while always producing reliable results. Creating this guide will help you identify sudden increases in complexity (cliff edges) that could hinder the user's progress.
 * The act of documenting a function forces you to consider all the edge cases, such as valid ranges of inputs, exceptions that might be thrown, and how performance degrades as the work increases. This can often lead to improvements in the function signatures and the underlying implementation.
 * If the code required to initialize your library always eclipses the code required to accomplish a task, rethink your configuration options.
 * If you cannot create clear examples of performing basic tasks with standard options, consider optimizing your API for day-to-day use.
@@ -47,10 +47,10 @@ When this is not possible, clearly mark sections of the documentation that relat
 Creating and evaluating documentation without a clear understanding of the intended audience is challenging.
 Defining multiple personas for the types of users who will read your documentation can be helpful.
 
-Consider the user’s constraints, such as the pre-existing software stack within which they need to operate.
+Consider the user's constraints, such as the pre-existing software stack within which they need to operate.
 Reviewers of the documentation can adopt these personas to make their conclusions more meaningful.
 
-When you lack specific information about your users, it’s best to be pessimistic.
+When you lack specific information about your users, it's best to be pessimistic.
 For example, do not assume expertise in the latest or most advanced features of Kotlin.
 Keep your code examples as simple as possible.
 
@@ -63,7 +63,7 @@ Over time, as you gain a better understanding of your users, refine the personas
 Documentation by example is one of the most cost-effective ways to explain basic concepts to users.
 Whenever possible, provide simple and clear code examples that help to explain or demonstrate the current topic or concept being discussed.
 
-The KDoc documentation format lets you use [inline markup using Markdown](https://kotlinlang.org/docs/kotlin-doc.html#inline-markup) in your documentation comments.
+The KDoc documentation format lets you use [inline markup using Markdown](kotlin-doc.md#inline-markup) in your documentation comments.
 Use inline code snippets in comments to showcase the usage of an API.
 For an example, see the [source code](https://github.com/Kotlin/kotlinx.coroutines/blob/master/kotlinx-coroutines-test/common/src/TestCoroutineDispatchers.kt) and [rendered documentation](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-unconfined-test-dispatcher.html) of the test dispatchers of the coroutines library.
 
@@ -74,19 +74,19 @@ Simply providing a folder of uncommented sample programs does not qualify as doc
 
 ## Thoroughly document your API
 
-Every supported API entry point should be documented using [KDoc](https://kotlinlang.org/docs/kotlin-doc.html).
+Every supported API entry point should be documented using [KDoc](kotlin-doc.md).
 
-Kotlin’s documentation engine, [Dokka](https://kotlinlang.org/docs/dokka-introduction.html), includes only public declarations in its outputs by default. As discussed in the [Simplicity](api-guidelines-minimizing-mental-complexity.md#simplicity) section,
-you should minimize your public API and remove public entry points that you don’t want users to access.
-If there are APIs you cannot hide from users by controlling their visibility, omit them from the documentation using the [suppress directive](https://kotlinlang.org/docs/kotlin-doc.html#suppress).
+Kotlin's documentation engine, [Dokka](dokka-introduction.md), includes only public declarations in its outputs by default. As discussed in the [Simplicity](api-guidelines-minimizing-mental-complexity.md#simplicity) section,
+you should minimize your public API and remove public entry points that you don't want users to access.
+If there are APIs you cannot hide from users by controlling their visibility, omit them from the documentation using the [suppress directive](kotlin-doc.md#suppress).
 
 Begin the description of entry points with a clear, high-level description of what the function does.
 Avoid simply restating the signature in natural language.
 
-For example, don’t say “takes a `String` and returns a `Connection`” but instead perhaps
+For example, don't say “takes a `String` and returns a `Connection`” but instead perhaps
 “Attempts to connect to the database specified by the input string, returning a `Connection` if successful, and throwing a `ConnectionTimeoutException` otherwise”.
 
-Specify each input’s expected values and behavior with different inputs.
+Specify each input's expected values and behavior with different inputs.
 Explain the range of valid values and what happens when invalid values are provided.
 For example, if a string input is supposed to be a URL, describe what happens when the string is empty, invalid, uses an unsupported protocol,
 or refers to a location that does not exist.
@@ -126,7 +126,7 @@ Typically, calls must be made in a specific sequence, there are multiple options
 and entry points that perform related tasks are used in similar ways.
 For example, functions like `format` and `parse` mirror each other.
 
-Use the [`@see`](https://kotlinlang.org/docs/kotlin-doc.html#see-identifier) tag or [internal links](https://kotlinlang.org/docs/kotlin-doc.html#links-to-elements) to make these relationships explicit in your documentation.
+Use the [`@see`](kotlin-doc.md#see-identifier) tag or [internal links](kotlin-doc.md#links-to-elements) to make these relationships explicit in your documentation.
 This helps the reader by enabling them to [chunk](https://en.wikipedia.org/wiki/Chunking_(psychology)) the information together, building a better-integrated mental map of the library.
 
 ## Be self-contained where possible
@@ -142,7 +142,7 @@ You can refer the user to external documents for edge cases that will not happen
 
 ## Use simple English
 
-It’s important to use simple and clear English when creating documentation.
+It's important to use simple and clear English when creating documentation.
 This ensures that your content is accessible to a global audience, including those whose first language is not English.
 Avoid using complex words, jargon, Latin phrases, or idiomatic expressions that might confuse readers.
 Instead, use straightforward language and concise sentences.

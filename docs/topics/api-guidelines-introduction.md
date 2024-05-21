@@ -23,7 +23,7 @@ The main focus of this guide is to explore the characteristics that a library mu
 The following sections dig deeper into these three characteristics, with practical advice on how you can provide the 
 best possible experience to users of your libraries.
 
-## What’s next
+## What's next
 
 * Explore strategies for minimizing mental complexity in the [Minimizing mental complexity](api-guidelines-minimizing-mental-complexity.md) page.
 * Learn about maintaining backward compatibility in the [Backward compatibility](api-guidelines-backward-compatibility.md) page.
