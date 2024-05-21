@@ -4,13 +4,12 @@
 
 <product-profile id="kl"
                  name="API guidelines"
-                 start-page="jvm-api-guidelines-introduction.md">
+                 start-page="api-guidelines-introduction.md">
 
     <chunk include-id="api-guidelines">
-        <toc-element id="jvm-api-guidelines-introduction.md"/>
-        <toc-element id="jvm-api-guidelines-readability.md"/>
-        <toc-element id="jvm-api-guidelines-predictability.md"/>
-        <toc-element id="jvm-api-guidelines-debuggability.md"/>
-        <toc-element id="jvm-api-guidelines-backward-compatibility.md"/>
+        <toc-element id="api-guidelines-introduction.md" accepts-web-file-names="jvm-api-guidelines-introduction.html"/>
+        <toc-element id="api-guidelines-minimizing-mental-complexity.md"/>
+        <toc-element id="api-guidelines-backward-compatibility.md" accepts-web-file-names="jvm-api-guidelines-backward-compatibility.html"/>
+        <toc-element id="api-guidelines-informative-documentation.md"/>
     </chunk>
 </product-profile>
