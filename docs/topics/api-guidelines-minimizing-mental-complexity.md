@@ -153,7 +153,7 @@ fun Json(prettyPrint: Boolean, isLenient: Boolean): Json
 This function could replace the `Json{}` DSL builder. However, the DSL approach has noticeable benefits:
 
 * Backward compatibility is easier to maintain with the DSL builder than with this function, as adding new configuration options simply means adding new properties (or in other examples, new functions), which is a backward-compatible change, unlike changing the parameter list of an existing function.
-* Documentation is also easier to create and maintain for the DSL. You can document each property separately at its point of declaration, instead of having to document many parameters of a function, all in one place.
+* It also makes creating and maintaining documentation easier. You can document each property separately at its point of declaration, instead of having to document many parameters of a function, all in one place.
 
 ### Use extension functions and properties
 
@@ -665,7 +665,7 @@ println(instant)
 
 Any code using this API will be difficult to test, as the call to the `now()` function will always return the real current time, while in tests it’s often desirable to return fake values instead.
 
-To enable testability, the `kotlinx-datetime`(https://github.com/Kotlin/kotlinx-datetime) library has an API that lets
+To enable testability, the [`kotlinx-datetime`](https://github.com/Kotlin/kotlinx-datetime) library has an API that lets
 users get a `Clock` instance, and then use that to get the current time:
 
 ```kotlin
