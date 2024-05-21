@@ -232,7 +232,7 @@ data class User(
 )
 ```
 
-And you want to add the following property:
+Later, you might want to add a property called `active`:
 
 ```kotlin
 data class User(
