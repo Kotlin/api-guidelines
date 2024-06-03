@@ -1,4 +1,4 @@
-[//]: # (title: Introduction)
+[//]: # (title: Library authors' guidelines introduction)
 
 This guide contains a summary of best practices and ideas to consider when designing libraries.
 
@@ -11,7 +11,7 @@ The relative importance of these criteria varies widely. For example, a library 
 
 The main focus of this guide is to explore the characteristics that a library must have to stay relevant and popular with its users. These characteristics include:
 
-* **Minimal mental complexity:**  All developers must consider the readability and maintainability of their code. It's crucial to reduce the mental effort required for others to read, understand, and use your APIs. Achieving this involves creating libraries that are clear, consistent, predictable, and easy to debug.
+* **Minimize mental complexity:**  All developers must consider the readability and maintainability of their code. It's crucial to reduce the mental effort required for others to read, understand, and use your APIs. Achieving this involves creating libraries that are clear, consistent, predictable, and easy to debug.
 * **Backward compatibility:** When releasing a new version of an API, ensure the existing API remains operational. Clearly communicate and document any breaking changes well in advance. Provide a straightforward, clear, and gradual pathway for users to adopt the new API or design changes.
 * **Informative documentation:** The documentation that accompanies the library needs to do more than repeat function and type declarations. It should be comprehensive and specifically tailored to the library's audience. It should accurately reflect the needs and scenarios of various user roles, ensuring it provides essential information without being overly simplistic or complex. Always include clear examples, balancing explanatory text with practical code samples.
 
