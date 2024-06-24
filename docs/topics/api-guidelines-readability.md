@@ -192,4 +192,4 @@ Kotlin defines a set of numeric types that you may use as part of your API. Here
 
 In the next part of the guide, you'll learn about consistency.
 
-[**Proceed to the next part**](api-guidelines-consistency.md)
+[Proceed to the next part](api-guidelines-consistency.md)

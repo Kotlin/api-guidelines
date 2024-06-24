@@ -50,4 +50,4 @@ additional operations without altering any behavior, the simplicity of the conce
 
 In the next part of the guide, you'll learn about readability. 
 
-[**Proceed to the next part**](api-guidelines-readability.md)
+[Proceed to the next part](api-guidelines-readability.md)

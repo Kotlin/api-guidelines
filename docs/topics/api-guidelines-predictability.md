@@ -159,4 +159,4 @@ class ShoppingCart {
 
 In the next part of the guide, you'll learn about debuggability.
 
-[**Proceed to the next part**](api-guidelines-debuggability.md)
+[Proceed to the next part](api-guidelines-debuggability.md)

@@ -18,4 +18,4 @@ The following sections give more detailed information on implementing these stra
 
 To begin exploring these strategies in depth, you can start with learning about simplicity in the next section.
 
-[**Proceed to the next part**](api-guidelines-simplicity.md)
+[Proceed to the next part](api-guidelines-simplicity.md)

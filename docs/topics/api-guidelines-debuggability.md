@@ -145,4 +145,4 @@ A common pattern is to wrap a low-level exception in a library-specific one, wit
 
 In the next part of the guide, you'll learn about testability.
 
-[**Proceed to the next part**](api-guidelines-testability.md)
+[Proceed to the next part](api-guidelines-testability.md)

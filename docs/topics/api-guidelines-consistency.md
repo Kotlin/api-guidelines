@@ -91,4 +91,4 @@ Tools like [Kover](https://github.com/Kotlin/kotlinx-kover) can be integrated in
 
 In the next part of the guide, you'll learn about predictability.
 
-[**Proceed to the next part**](api-guidelines-predictability.md)
+[Proceed to the next part](api-guidelines-predictability.md)
