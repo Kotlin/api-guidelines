@@ -1,4 +1,4 @@
-[//]: # (title: Backward compatibility)
+[//]: # (title: Backward compatibility guidelines for library authors)
 
 The most common motivation for creating a library is to expose functionality to a wider community.
 This community might be a single team, a company, a particular industry, or a technology platform.

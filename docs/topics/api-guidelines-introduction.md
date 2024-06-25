@@ -1,4 +1,4 @@
-[//]: # (title: Library authors' guidelines introduction)
+[//]: # (title: Introduction to library authors' guidelines)
 
 This guide contains a summary of best practices and ideas to consider when designing libraries.
 

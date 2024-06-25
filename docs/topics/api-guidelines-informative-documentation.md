@@ -1,4 +1,4 @@
-[//]: # (title: Informative documentation)
+[//]: # (title: Best practices for library authors to create informative documentation)
 
 The documentation you provide for your library is crucial.
 It can determine whether users investigate your library, adopt it within their projects, and persevere when they encounter difficulties.
