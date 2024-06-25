@@ -76,7 +76,7 @@ Simply providing a folder of uncommented sample programs does not qualify as doc
 
 Every supported API entry point should be documented using [KDoc](kotlin-doc.md).
 
-Kotlin's documentation engine, [Dokka](dokka-introduction.md), includes only public declarations in its outputs by default. As discussed in the [Simplicity](api-guidelines-minimizing-mental-complexity.md#simplicity) section,
+Kotlin's documentation engine, [Dokka](dokka-introduction.md), includes only public declarations in its outputs by default. As discussed in the [Simplicity](api-guidelines-simplicity.md) section,
 you should minimize your public API and remove public entry points that you don't want users to access.
 If there are APIs you cannot hide from users by controlling their visibility, omit them from the documentation using the [suppress directive](kotlin-doc.md#suppress).
 

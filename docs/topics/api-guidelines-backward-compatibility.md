@@ -54,7 +54,7 @@ The validator has [experimental support for validating KLibs](https://github.com
 ## Specify return types explicitly
 
 As discussed in the [Kotlin coding guidelines](coding-conventions.md#coding-conventions-for-libraries),
-you should always explicitly specify function return types and property types within the API. See also the section about [Explicit API mode](api-guidelines-minimizing-mental-complexity.md#use-explicit-api-mode).
+you should always explicitly specify function return types and property types within the API. See also the section about [Explicit API mode](api-guidelines-simplicity.md#use-explicit-api-mode).
 
 Consider the following example, where the library author creates a `JsonDeserializer` and, for convenience, uses an extension function to associate it with the `Int` type:
 
