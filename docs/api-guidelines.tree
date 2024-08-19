@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
-<instance-profile id="kl" name="API guidelines" start-page="api-guidelines-introduction.md">
+<instance-profile id="api-guidelines" name="API guidelines" start-page="api-guidelines-introduction.md">
 	<snippet id="api-guidelines">
 		<toc-element toc-title="Introduction" accepts-web-file-names="jvm-api-guidelines-introduction.html" topic="api-guidelines-introduction.md"/>
 		<toc-element toc-title="Minimizing mental complexity">
