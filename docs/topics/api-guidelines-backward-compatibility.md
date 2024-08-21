@@ -292,7 +292,7 @@ This process should occur across several minor releases, giving users time to ma
 Breaking changes, such as removing an API, should happen only in major releases.
 A library may adopt different versioning and deprecation strategies, but this must be communicated to its users to set the correct expectations.
 
-You can learn more in the [Kotlin Evolution principles document](kotlin-evolution.md#libraries) or in the [Evolving your Kotlin API painlessly for clients talk](https://www.youtube.com/watch?v=cCgXtpVPO-o&t=1468s)
+You can learn more in the [Kotlin Evolution principles document](kotlin-evolution-principles.md#libraries) or in the [Evolving your Kotlin API painlessly for clients talk](https://www.youtube.com/watch?v=cCgXtpVPO-o&t=1468s)
 by Leonid Startsev from KotlinConf 2023.
 
 ## Use the RequiresOptIn mechanism 
