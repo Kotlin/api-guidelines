@@ -18,7 +18,7 @@ The main focus of this guide is to explore the characteristics that a library mu
 > The process of identifying and defining functional and non-functional requirements is a complex topic that has been extensively studied in software engineering. 
 > This guide does not cover these topics in depth, as they are beyond its scope.
 > 
-{type="note"}
+{style="note"}
 
 The following sections dig deeper into these three characteristics, with practical advice on how you can provide the 
 best possible experience to users of your libraries.

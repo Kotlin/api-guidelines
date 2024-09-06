@@ -1,23 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE product-profile
-        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-
-<product-profile id="kl"
-                 name="API guidelines"
-                 start-page="api-guidelines-introduction.md">
-
-    <chunk include-id="api-guidelines">
-        <toc-element id="api-guidelines-introduction.md" toc-title="Introduction" accepts-web-file-names="jvm-api-guidelines-introduction.html"/>
-        <toc-element toc-title="Minimizing mental complexity">
-            <toc-element id="api-guidelines-minimizing-mental-complexity.md" toc-title="Overview"/>
-            <toc-element id="api-guidelines-simplicity.md"/>
-            <toc-element id="api-guidelines-readability.md" toc-title="Readability" accepts-web-file-names="jvm-api-guidelines-readability.html"/>
-            <toc-element id="api-guidelines-consistency.md"/>
-            <toc-element id="api-guidelines-predictability.md" toc-title="Predictability" accepts-web-file-names="jvm-api-guidelines-predictability.html"/>
-            <toc-element id="api-guidelines-debuggability.md" toc-title="Debuggability" accepts-web-file-names="jvm-api-guidelines-debuggability.html"/>
-            <toc-element id="api-guidelines-testability.md"/>
-        </toc-element>
-        <toc-element id="api-guidelines-backward-compatibility.md" toc-title="Backward compatibility" accepts-web-file-names="jvm-api-guidelines-backward-compatibility.html"/>
-        <toc-element id="api-guidelines-informative-documentation.md" toc-title="Informative documentation"/>
-    </chunk>
-</product-profile>
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+<instance-profile id="kl" name="API guidelines" start-page="api-guidelines-introduction.md">
+	<snippet id="api-guidelines">
+		<toc-element toc-title="Introduction" accepts-web-file-names="jvm-api-guidelines-introduction.html" topic="api-guidelines-introduction.md"/>
+		<toc-element toc-title="Minimizing mental complexity">
+			<toc-element toc-title="Overview" topic="api-guidelines-minimizing-mental-complexity.md"/>
+			<toc-element topic="api-guidelines-simplicity.md"/>
+			<toc-element toc-title="Readability" accepts-web-file-names="jvm-api-guidelines-readability.html" topic="api-guidelines-readability.md"/>
+			<toc-element topic="api-guidelines-consistency.md"/>
+			<toc-element toc-title="Predictability" accepts-web-file-names="jvm-api-guidelines-predictability.html" topic="api-guidelines-predictability.md"/>
+			<toc-element toc-title="Debuggability" accepts-web-file-names="jvm-api-guidelines-debuggability.html" topic="api-guidelines-debuggability.md"/>
+			<toc-element topic="api-guidelines-testability.md"/>
+		</toc-element>
+		<toc-element toc-title="Backward compatibility" accepts-web-file-names="jvm-api-guidelines-backward-compatibility.html" topic="api-guidelines-backward-compatibility.md"/>
+		<toc-element toc-title="Informative documentation" topic="api-guidelines-informative-documentation.md"/>
+	</snippet>
+</instance-profile>
