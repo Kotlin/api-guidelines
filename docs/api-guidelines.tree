@@ -6,10 +6,10 @@
 		<toc-element toc-title="Minimizing mental complexity">
 			<toc-element toc-title="Overview" topic="api-guidelines-minimizing-mental-complexity.md"/>
 			<toc-element topic="api-guidelines-simplicity.md"/>
-			<toc-element toc-title="Readability" accepts-web-file-names="jvm-api-guidelines-readability.html" topic="api-guidelines-readability.md"/>
+			<toc-element accepts-web-file-names="jvm-api-guidelines-readability.html" topic="api-guidelines-readability.md"/>
 			<toc-element topic="api-guidelines-consistency.md"/>
-			<toc-element toc-title="Predictability" accepts-web-file-names="jvm-api-guidelines-predictability.html" topic="api-guidelines-predictability.md"/>
-			<toc-element toc-title="Debuggability" accepts-web-file-names="jvm-api-guidelines-debuggability.html" topic="api-guidelines-debuggability.md"/>
+			<toc-element accepts-web-file-names="jvm-api-guidelines-predictability.html" topic="api-guidelines-predictability.md"/>
+			<toc-element accepts-web-file-names="jvm-api-guidelines-debuggability.html" topic="api-guidelines-debuggability.md"/>
 			<toc-element topic="api-guidelines-testability.md"/>
 		</toc-element>
 		<toc-element toc-title="Backward compatibility" accepts-web-file-names="jvm-api-guidelines-backward-compatibility.html" topic="api-guidelines-backward-compatibility.md"/>
