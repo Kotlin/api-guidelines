@@ -96,7 +96,7 @@ Document every exception an API entry point may throw. Discuss failure condition
 > We recommend learning about technical writing to improve the clarity and effectiveness of your documentation. 
 > Consider exploring resources, such as this course from Google ([part one](https://developers.google.com/tech-writing/one) and [part two](https://developers.google.com/tech-writing/two)).
 > 
-{type="tip"}
+{style="tip"}
 
 ## Document lambda parameters
 
