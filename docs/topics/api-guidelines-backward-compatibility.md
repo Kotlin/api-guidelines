@@ -306,7 +306,7 @@ when introducing new APIs to your library.
 If you choose to use this mechanism, we recommend following these best practices:
 
 * Use the opt-in mechanism to provide different guarantees to different parts of the API. For example, you could mark features as _Preview_, _Experimental_, and _Delicate_. Each category should be clearly explained in your documentation and in [KDoc comments](kotlin-doc.md), with appropriate warning messages.
-* If your library uses an experimental API, [propagate the annotation](opt-in-requirements.md#propagating-opt-in) to your own users. This ensures your users are aware that you have dependencies which are still evolving.
+* If your library uses an experimental API, [propagate the annotation](opt-in-requirements.md#propagate-opt-in-requirements) to your own users. This ensures your users are aware that you have dependencies which are still evolving.
 * Avoid using the opt-in mechanism to deprecate already existing declarations in your library. Use `@Deprecated` instead, as described in the [Evolve APIs pragmatically](#evolve-apis-pragmatically) section.
 
 ## What's next
