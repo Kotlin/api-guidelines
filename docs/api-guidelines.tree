@@ -14,5 +14,6 @@
 		</toc-element>
 		<toc-element toc-title="Backward compatibility" accepts-web-file-names="jvm-api-guidelines-backward-compatibility.html" topic="api-guidelines-backward-compatibility.md"/>
 		<toc-element toc-title="Informative documentation" topic="api-guidelines-informative-documentation.md"/>
+		<toc-element toc-title="Building for multiplatform" topic="api-guidelines-build-for-multiplatform.md"/>
 	</snippet>
 </instance-profile>
