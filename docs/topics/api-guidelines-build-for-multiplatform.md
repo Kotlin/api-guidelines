@@ -7,6 +7,15 @@ The following sections provide guidelines to help you build a Kotlin Multiplatfo
 
 ## Maximize your reach
 
+> To streamline artifact production, you can try out an [experimental](components-stability.md#stability-levels-explained) feature for publishing Kotlin Multiplatform libraries from any host using cross-compilation.
+> This allows you to generate `.klib` artifacts for Apple targets without needing an Apple machine.
+> For more information, see [Host requirements](multiplatform-publish-lib.md#host-requirements).
+>
+> We're planning to stabilize this feature and further improve library publication in the future.
+> Please leave your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
+>
+{style="note"}
+
 To make your library available to the largest number of projects as a dependency,
 aim to support as many [target platforms](multiplatform-dsl-reference.md#targets) of Kotlin Multiplatform as possible.
 
