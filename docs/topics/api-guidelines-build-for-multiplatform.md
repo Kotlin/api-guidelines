@@ -15,6 +15,11 @@ whether it's a library or an application, it becomes difficult for that project 
 In that case, projects can use your library for some platforms and need to implement separate solutions for others,
 or they will choose an alternative library altogether that supports all their platforms.
 
+To streamline artifact production, you can try Experimental [cross-compilation](multiplatform-publish-lib.md#host-requirements) to publish Kotlin Multiplatform libraries from any host.
+This allows you to generate `.klib` artifacts for Apple targets without an Apple machine.
+We plan to stabilize this feature and further improve library publication in the future.
+Please leave your feedback about this feature in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
+
 > For Kotlin/Native targets, consider using a [tiered approach](native-target-support.md#for-library-authors) to support all possible targets.
 >
 {style="note"}
