@@ -81,3 +81,10 @@ from languages other than Kotlin.
 For example, if some types from your library will be exposed to Swift code through interoperability,
 design those types to be easily accessible from Swift.
 The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia) provides useful insights into how Kotlin APIs appear when called from Swift.
+
+## Promote your library
+
+Your library can be featured on the [JetBrains' search platform](https://klibs.io/).
+It's designed to make it easy to look for Kotlin Multiplatform libraries based on their target platforms.
+
+Libraries that meet the criteria are added automatically. For more information on how to add your library, see [FAQ](https://klibs.io/faq).
