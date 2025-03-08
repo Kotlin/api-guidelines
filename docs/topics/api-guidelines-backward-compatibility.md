@@ -117,7 +117,7 @@ fun fib(input: Int = 0) = … // Returns Fibonacci member
 You now need to recompile the file `lib.kt`. You might expect that the `client.kt` file does not need to be recompiled,
 and the associated class file can be invoked as follows:
 
-```kotlin
+```shell
 $ kotlin ClientKt.class
 ```
 
