@@ -91,7 +91,7 @@ Explain the range of valid values and what happens when invalid values are provi
 For example, if a string input is supposed to be a URL, describe what happens when the string is empty, invalid, uses an unsupported protocol,
 or refers to a location that does not exist.
 
-Document every exception an API entry point may throw. Discuss failure conditions in the general description and reserve the exception section for detailed information. This enhances readability and helps the reader focus. Instead, include this information organically into the general description. Providing usage examples whenever possible also helps users understand how to implement the API correctly.
+Document every exception an API entry point may throw. Discuss failure conditions in the general description and reserve the exception section for detailed information. This enhances readability and helps the reader focus. Instead, include this information organically into the general description. Providing usage examples whenever possible also helps users understand how to use the API correctly.
 
 > We recommend learning about technical writing to improve the clarity and effectiveness of your documentation. 
 > Consider exploring resources, such as this course from Google ([part one](https://developers.google.com/tech-writing/one) and [part two](https://developers.google.com/tech-writing/two)).

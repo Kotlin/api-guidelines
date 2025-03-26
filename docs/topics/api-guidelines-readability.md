@@ -177,7 +177,7 @@ This approach is useful if there are several modes of operation, or if you expec
 Kotlin defines a set of numeric types that you may use as part of your API. Here's how to use them appropriately:
 
 * Use the `Int`,` Long` and `Double` types as arithmetic types. They represent values with which calculations are performed.
-* Avoid using arithmetic types for non-arithmetic entities. For example, if you represent an ID as a `Long` your users
+* Avoid using arithmetic types for non-arithmetic entities. For example, if you represent an ID as a `Long`, your users
   might be tempted to compare IDs, on the assumption they are assigned in order.
   This could lead to unreliable or meaningless results, or create dependencies on implementations that could change without warning.
   A better strategy is to define a specialized class for the ID abstraction. You could use [Inline value classes](inline-classes.md) to build such abstractions without affecting performance. See the  [`Duration`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) class for an example.
