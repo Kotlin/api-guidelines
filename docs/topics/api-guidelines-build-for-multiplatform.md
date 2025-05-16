@@ -1,6 +1,6 @@
 [//]: # (title: Building a Kotlin library for multiplatform)
 
-When creating a Kotlin library, consider building and [publishing it with support for Kotlin Multiplatform](multiplatform-publish-lib.md).
+When creating a Kotlin library, consider building and [publishing it with support for Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html).
 This broadens the target audience of your library, making it compatible with projects targeting multiple platforms.
 
 The following sections provide guidelines to help you build a Kotlin Multiplatform library effectively.
@@ -8,14 +8,14 @@ The following sections provide guidelines to help you build a Kotlin Multiplatfo
 ## Maximize your reach
 
 To make your library available to the largest number of projects as a dependency,
-aim to support as many [target platforms](multiplatform-dsl-reference.md#targets) of Kotlin Multiplatform as possible.
+aim to support as many [target platforms](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets) of Kotlin Multiplatform as possible.
 
 If your library doesn't support the platforms used by a multiplatform project,
 whether it's a library or an application, it becomes difficult for that project to depend on your library.
 In that case, projects can use your library for some platforms and need to implement separate solutions for others,
 or they will choose an alternative library altogether that supports all their platforms.
 
-To streamline artifact production, you can try Experimental [cross-compilation](multiplatform-publish-lib.md#host-requirements) to publish Kotlin Multiplatform libraries from any host.
+To streamline artifact production, you can try Experimental [cross-compilation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html#host-requirements) to publish Kotlin Multiplatform libraries from any host.
 This allows you to generate `.klib` artifacts for Apple targets without an Apple machine.
 We plan to stabilize this feature and further improve library publication in the future.
 Please leave your feedback about this feature in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
@@ -34,11 +34,11 @@ Good defaults allow users to use the library's APIs from common Kotlin code, wit
 Place APIs in the broadest relevant source set using the following priority:
 
 * **The `commonMain` source set:** APIs in the `commonMain` source set are available to all platforms the library supports. Aim to place most of your library's API here.
-* **Intermediate source sets:** If some platforms don't support certain APIs, use [intermediate source sets](multiplatform-discover-project.md#intermediate-source-sets) to target specific platforms.
+* **Intermediate source sets:** If some platforms don't support certain APIs, use [intermediate source sets](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-discover-project.html#intermediate-source-sets) to target specific platforms.
 For example, you can create a `concurrent` source set for targets that support multi-threading or a `nonJvm` source set for all non-JVM targets.
 * **Platform-specific source sets:** For platform-specific APIs, use source sets like `androidMain`.
 
-> To learn more about the source sets of Kotlin Multiplatform projects, see [Hierarchical project structure](multiplatform-hierarchy.md).
+> To learn more about the source sets of Kotlin Multiplatform projects, see [Hierarchical project structure](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html).
 >
 {style="tip"}
 
@@ -51,7 +51,7 @@ Similarly, the library should treat invalid inputs uniformly and report errors o
 
 Inconsistent behavior makes the library difficult to use and forces users to add conditional logic in common code to manage platform-specific differences.
 
-You can use [`expect` and `actual` declarations](multiplatform-expect-actual.md) to declare functions in common code with
+You can use [`expect` and `actual` declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html) to declare functions in common code with
 platform-specific implementations that have full access to the native APIs of each platform.
 These implementations must also have the same behavior to ensure that they can be used reliably from common code.
 
