@@ -51,6 +51,13 @@ If you are satisfied with the changes, you can update the existing `.api` file, 
 
 The validator has [experimental support for validating KLibs](https://github.com/Kotlin/binary-compatibility-validator?tab=readme-ov-file#experimental-klib-abi-validation-support) produced by multiplatform libraries.
 
+### Binary compatibility validation in the Kotlin Gradle plugin
+
+<primary-label ref="experimental-general"/>
+
+Starting with version 2.2.0, the Kotlin Gradle plugin supports binary compatibility validation. For more information,
+see [Binary compatibility validation in the Kotlin Gradle plugin](gradle-binary-compatibility-validation.md).
+
 ## Specify return types explicitly
 
 As discussed in the [Kotlin coding guidelines](coding-conventions.md#coding-conventions-for-libraries),
