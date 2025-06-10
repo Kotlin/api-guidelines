@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE labels SYSTEM "https://resources.jetbrains.com/writerside/1.0/labels-list.dtd">
+<labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/labels.xsd">
+
+    <primary-label id="experimental-general" name="Experimental" short-name="Experimental" href="components-stability.html#stability-levels-explained" color="red">The feature is Experimental. It may be dropped or changed at any time. Use it only for evaluation purposes.</primary-label>
+
+</labels>
