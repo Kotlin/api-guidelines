@@ -96,7 +96,7 @@ Existing functionality will continue to work, with the added ability to deserial
 
 Adding non-default arguments to a public API breaks both binary and source compatibility,
 as users are required to provide more information on an invocation than before.
-However, even adding [default arguments](functions.md#default-arguments) can break compatibility.
+However, even adding [default arguments](functions.md#parameters-with-default-values) can break compatibility.
 
 For example, imagine you have the following function in `lib.kt`:
 
