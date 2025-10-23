@@ -271,6 +271,44 @@ However, the effort involved negates the convenience of using a data class.
 Another issue with data classes is that changing the order of constructor arguments affects the generated `componentX` methods,
 which are used for destructuring. Even if it does not break binary compatibility, changing the order will definitely break behavioral compatibility.
 
+## Avoid using sealed types or enum classes in your API
+
+Sealed types are useful in regular development to make sure you handle all possible options.
+In API design, this becomes a burden on your users.
+
+For example, let's say you use the following sealed class in your API:
+
+```kotlin
+sealed class Animal(val sound: String)
+
+class Cat: Animal(sound = "meow")
+class Dog: Animal(sound = "woof")
+```
+
+Later, you might want to add further animal subtypes:
+
+```kotlin
+sealed class Animal(val sound: String)
+
+class Cat: Animal(sound = "meow")
+class Dog: Animal(sound = "woof")
+class Cow: Animal(sound = "moo")
+```
+
+This would break source compatibility. Exhaustive `when` statements now need an additional branch to compile.
+
+Before adding a new subtype, this code would compile: 
+
+```kotlin
+val animal: Animal = getAnimal()
+when (animal) {
+    is Cat -> pet(animal)
+    is Dog -> throwBallTo(animal)
+}
+```
+
+After adding the `Cow` subtype, the `when` is no longer exhaustive.
+
 ## Considerations for using the PublishedApi annotation
 
 Kotlin allows inline functions to be a part of your library's API. Calls to these functions will be inlined into the
