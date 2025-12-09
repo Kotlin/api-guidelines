@@ -143,21 +143,16 @@ Source compatibility, however, is preserved. If you recompile both files, the pr
 
 ### Use manual overloads to preserve compatibility {initial-collapse-state="collapsed" collapsible="true"}
 
-For all Kotlin targets, you must manually create several overloads of your function instead of a single function
-that accepts default arguments to preserve binary compatibility. In the example above, this means creating a separate 
-`fib` function for the case where you wish to take an `Int` parameter:
+To maintain binary compatibility, if you want to add a new parameter to a function you will need to manually create several overloads instead
+of a single function with default arguments. In the example above, this means creating a separate `fib` function for the case where
+you wish to take an `Int` parameter:
 
 ```kotlin
 fun fib() = … 
 fun fib(input: Int) = …
 ```
 
-Use caution when using [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/) to create overloads
-for binary compatibility. 
-Even though the annotation generates one overload of the function per default parameter, when Kotlin clients call the
-function without including all the parameters then the compiled code will use a synthetitc `$default` version. When a new default parameter
-is added to the function the synthetic version of the function will change; this will break binary compatitbility for code that compiled against
-older versions of the library.
+When writing Kotlin code for the JVM, use caution when adding parameters to functions with the [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/) annotation with default arguments. The annotation alone will not preserve binary compatibility and you will still need to add manual overloads.
 
 ## Avoid widening or narrowing return types
 
