@@ -145,7 +145,7 @@ Source compatibility, however, is preserved. If you recompile both files, the pr
 
 To maintain binary compatibility, if you want to add a new parameter to a function, you need to manually create several overloads instead
 of using a single function with default arguments. In the example above, this means creating a separate `fib()` function for the case where
-you wish to take an `Int` parameter:
+you want to take an `Int` parameter:
 
 ```kotlin
 fun fib() = … 
