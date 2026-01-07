@@ -152,7 +152,7 @@ fun fib() = …
 fun fib(input: Int) = …
 ```
 
-When writing Kotlin code for the JVM, be careful when adding parameters to functions annotated with [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/) that have default arguments. The annotation does not preserve binary compatibility, so you will still need to add manual overloads.
+When writing Kotlin code for the JVM, be careful when adding parameters to functions annotated with [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/) that have default arguments. The annotation does not preserve binary compatibility, so you still need to add manual overloads.
 
 ## Avoid widening or narrowing return types
 
