@@ -144,18 +144,16 @@ Source compatibility, however, is preserved. If you recompile both files, the pr
 ### Use overloads to preserve binary compatibility {initial-collapse-state="collapsed" collapsible="true"}
 
 When adding optional parameters to published APIs, you can use the [Experimental](components-stability.md#stability-levels-explained)
-[`@IntroducedAt`](java-to-kotlin-interop.md#overloads-generation) annotation to generate hidden overloads based on the
-version in which each parameter was introduced.
+[`@IntroducedAt`](java-to-kotlin-interop.md#overloads-generation) annotation to preserve binary compatibility.
 
-Add the annotation to each new optional parameter.
-The compiler uses this information to generate the corresponding hidden overloads to preserve binary compatibility.
-
-Here's an example with an optional `Int` parameter:
+Add the annotation to each new optional parameter with the version in which it was introduced, for example:
 
 ```kotlin
 @OptIn(ExperimentalVersionOverloading::class)
 fun fib(@IntroducedAt("1.1") input: Int = 0) = …
 ```
+
+The compiler uses this information to generate the corresponding hidden overloads.
 
 When writing Kotlin code for the JVM, you can also use the
 [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/) annotation on functions with default
