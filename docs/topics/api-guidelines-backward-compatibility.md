@@ -146,7 +146,7 @@ Source compatibility, however, is preserved. If you recompile both files, the pr
 When adding optional parameters to published APIs, you can use the [Experimental](components-stability.md#stability-levels-explained)
 [`@IntroducedAt`](java-to-kotlin-interop.md#overloads-generation) annotation to preserve binary compatibility.
 
-Add the annotation to each new optional parameter with the version in which it was introduced, for example:
+Add the annotation to each new optional parameter with the version in which it was introduced. For example:
 
 ```kotlin
 @OptIn(ExperimentalVersionOverloading::class)
@@ -165,7 +165,7 @@ arguments to generate overloads.
 {style="warning"}
 
 You can also create overloads manually instead of using a single function with default arguments.
-For example, if you want `fib()` to take an `Int` parameter, create a separate overload:
+For example, if you want the `fib()` function to accept an `Int` parameter, create a separate overload:
 
 ```kotlin
 fun fib() = … 
