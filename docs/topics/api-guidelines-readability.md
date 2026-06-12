@@ -14,7 +14,7 @@ However, introducing these customization options through additional function par
 
 Instead of adding more parameters for customization, it's more effective to design an API where different behaviors can
 be composed together.
-For example, in the coroutine Flows API both [buffering](flow.md#buffering) and [conflation](flow.md#conflation) are implemented as separate functions.
+For example, in the coroutine Flows API both [buffering](coroutines-flow-operators.md#buffering) and [conflation](coroutines-flow-operators.md#conflation) are implemented as separate functions.
 These can be chained together with more basic operations like [`filter`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/filter.html) and [`map`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/map.html), instead of each basic operation accepting parameters to control buffering and conflation.
 
 Another example involves the [Modifiers API in Jetpack Compose](https://developer.android.com/develop/ui/compose/modifiers).
