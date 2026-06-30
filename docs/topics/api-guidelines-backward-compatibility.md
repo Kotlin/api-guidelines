@@ -274,7 +274,7 @@ which are used for destructuring. Even if it does not break binary compatibility
 
 ## Avoid changing annotation targets
 
-When you expose an annotation, avoid changing its allowed targets after publishing your library. Changing the allowed targets can change how the same annotation is applied when users recompile existing code.
+When you expose an annotation, avoid changing its allowed targets after publishing your library. Changing them can affect how the same annotation is applied when users recompile existing code.
 
 For example, if an annotation declares only `AnnotationTarget.FIELD`, an unqualified annotation on a property applies to its backing field:
 
@@ -300,11 +300,11 @@ class User {
 }
 ```
 
-This happens because [Kotlin chooses the `property` target before the `field` target](annotations.md#defaults-when-no-use-site-targets-are-specified). The `field` target is used only when `property` isn't applicable.
+This happens because the [Kotlin compiler chooses the `property` target before the `field` target](annotations.md#defaults-when-no-use-site-targets-are-specified). The `field` target is used only when `property` isn't applicable.
 
 This can break compatibility for tools and frameworks that expect the annotation on a specific generated element.
-Specifically, the `property` target isn't visible to Java.
-If Java reflection or Java annotation processors need to find the annotation on to the backing field, users must specify the `field` use-site target explicitly:
+In particular, the `property` target isn't visible to Java.
+If Java reflection or Java annotation processors need to find the annotation on the backing field, users must specify the `field` use-site target explicitly:
 
 ```kotlin
 class User {
