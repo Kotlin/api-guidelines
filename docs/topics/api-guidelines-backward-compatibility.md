@@ -35,6 +35,23 @@ the library to guarantee compatibility.
 **Behavioral compatibility** means that a new version of the library does not modify the existing functionality,
 except to fix bugs. The same features are involved and they have the same semantics.
 
+## Choose compatible language and API versions
+
+When publishing a library, consider both its compile-time and runtime compatibility:
+
+* The [language version](compiler-reference.md#language-version-version) affects which Kotlin compiler versions can compile code that directly uses your library.
+* The [API version](compiler-reference.md#api-version-version) affects the minimum Kotlin standard library version required at runtime.
+
+Runtime compatibility also matters when an application uses your library indirectly. For example, your library may be a
+transitive dependency or an implementation loaded through a `ServiceLoader` or reflection.
+
+In most cases, use the same language and API version. Set an older API version when your library must run with an older
+version of the Kotlin standard library.
+
+For the JVM, a library compiled with a given language and API version is compatible with that version and the next later version.
+For example, if you configure version 2.1, consumers can compile against and run the library with Kotlin 2.1.0 – 2.2.0. 
+On other platforms, a library compiled with a given language and API version is only compatible with that version.
+
 ## Use the Binary compatibility validator
 
 JetBrains provides a [Binary compatibility validator](https://github.com/Kotlin/binary-compatibility-validator) tool, which can be used to ensure binary compatibility across different versions of your API.
