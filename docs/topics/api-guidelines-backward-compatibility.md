@@ -41,16 +41,20 @@ When publishing a library, consider both its compile-time and runtime compatibil
 
 * The [language version](compiler-reference.md#language-version-version) affects which Kotlin compiler versions can compile code that directly uses your library.
 * The [API version](compiler-reference.md#api-version-version) affects the minimum Kotlin standard library version required at runtime.
+  
+In most cases, use the same language and API version.
 
-Runtime compatibility also matters when an application uses your library indirectly. For example, your library may be a
-transitive dependency or an implementation loaded through a `ServiceLoader` or reflection.
+Setting a new language version (LV) for your library forces your consumers to use a new compiler version. For the JVM,
+they must use a compiler version of at least LV-1. For other platforms, they must use at least LV.
+This dependency can slow down consumers upgrading to new versions of your library.
 
-In most cases, use the same language and API version. Set an older API version when your library must run with an older
-version of the Kotlin standard library.
+Your consumers need to provide a standard library version of at least the configured API version of your library.
+For example, if the environment is not within your consumer's control, like with Gradle or an IDE plugin, where it can 
+be hard to provide new standard library versions. This is another way that your consumers can be delayed from upgrading
+to the latest versions of your library.
 
-For the JVM, a library compiled with a given language and API version is compatible with that version and the next later version.
-For example, if you configure version 2.1, consumers can compile against and run the library with Kotlin 2.1.0 – 2.2.0. 
-On other platforms, a library compiled with a given language and API version is only compatible with that version.
+It's up to you to find the balance between adopting the latest language features and maintaining compatibility with older compilers.
+It all depends on the particular use case and the number of users of your library.
 
 ## Use the Binary compatibility validator
 
