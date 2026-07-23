@@ -39,22 +39,24 @@ except to fix bugs. The same features are involved and they have the same semant
 
 When publishing a library, consider both its compile-time and runtime compatibility:
 
-* The [language version](compiler-reference.md#language-version-version) affects which Kotlin compiler versions can compile code that directly uses your library.
-* The [API version](compiler-reference.md#api-version-version) affects the minimum Kotlin standard library version required at runtime.
+* The [language version](compiler-reference.md#language-version-version) determines which Kotlin compiler versions can compile code that directly uses your library.
+* The [API version](compiler-reference.md#api-version-version) determines the minimum Kotlin standard library version required at runtime.
   
 In most cases, use the same language and API version.
 
-Setting a new language version (LV) for your library forces your consumers to use a new compiler version. For the JVM,
-they must use a compiler version of at least LV-1. For other platforms, they must use at least LV.
-This dependency can slow down consumers upgrading to new versions of your library.
+Setting a newer language version for your library requires your consumers to use a newer Kotlin compiler version. On the JVM,
+consumers can use a compiler version the same as the library's configured language version or the previous language version.
+For example, setting language version 2.2 means that the compiler version can be 2.2.x or 2.1.x.
+On other platforms, consumers must use a compiler version the same as the library's configured language version. This 
+requirement can delay consumers from upgrading to newer versions of your library if they can't upgrade their compiler immediately.
 
-Your consumers need to provide a standard library version of at least the configured API version of your library.
-For example, if the environment is not within your consumer's control, like with Gradle or an IDE plugin, where it can 
-be hard to provide new standard library versions. This is another way that your consumers can be delayed from upgrading
-to the latest versions of your library.
+Your consumers also need to provide a Kotlin standard library version that is at least as new as your library's configured API version.
+This can make upgrades more difficult when the runtime environment is outside their control and it's hard to provide a newer standard
+library version, such as in Gradle or IDE plugins.
 
-It's up to you to find the balance between adopting the latest language features and maintaining compatibility with older compilers.
-It all depends on the particular use case and the number of users of your library.
+Choose the language and API versions that best fit your library. Newer versions let you adopt the latest Kotlin features,
+while older versions help more consumers use your library. The best choice depends on your library's use case and the 
+number of consumers who rely on it.
 
 ## Use the Binary compatibility validator
 
