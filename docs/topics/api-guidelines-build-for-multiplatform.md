@@ -3,6 +3,10 @@
 When creating a Kotlin library, consider building and [publishing it with support for Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html).
 This broadens the target audience of your library, making it compatible with projects targeting multiple platforms.
 
+> You can find already available Kotlin Multiplatform libraries for different use cases and target platforms on [klibs.io](https://klibs.io/).
+> 
+{style="tip"}
+
 The following sections provide guidelines to help you build a Kotlin Multiplatform library effectively.
 
 ## Maximize your reach
@@ -82,7 +86,7 @@ The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-i
 
 ## Promote your library
 
-Your library can be featured on the [JetBrains' search platform](https://klibs.io/).
-It's designed to make it easy to look for Kotlin Multiplatform libraries based on their target platforms.
+You can feature your library on [klibs.io](https://klibs.io/), the search platform where developers discover and evaluate Kotlin Multiplatform libraries.
 
-Libraries that meet the criteria are added automatically. For more information on how to add your library, see [FAQ](https://klibs.io/faq).
+[klibs.io](https://klibs.io/) automatically lists libraries that meet its listing criteria.
+To check whether your library qualifies, see the [FAQ](https://klibs.io/faq).
