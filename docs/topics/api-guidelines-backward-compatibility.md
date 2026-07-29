@@ -35,6 +35,29 @@ the library to guarantee compatibility.
 **Behavioral compatibility** means that a new version of the library does not modify the existing functionality,
 except to fix bugs. The same features are involved and they have the same semantics.
 
+## Choose compatible language and API versions
+
+When publishing a library, consider both its compile-time and runtime compatibility:
+
+* The [language version](compiler-reference.md#language-version-version) determines which Kotlin compiler versions can compile code that directly uses your library.
+* The [API version](compiler-reference.md#api-version-version) determines the minimum Kotlin standard library version required at runtime.
+  
+In most cases, use the same language and API version.
+
+Setting a newer language version for your library requires your consumers to use a newer Kotlin compiler version. On the JVM,
+consumers can use any compiler version from the previous language version onwards. For example, if your library uses language version
+2.2, consumers can use compiler version 2.1.x, 2.2.x or later. On other platforms, consumers can use a compiler version
+the same as the library's configured language version or any later version. This requirement can delay consumers from upgrading to
+newer versions of your library if they can't upgrade their compiler immediately.
+
+Your consumers also need to provide a Kotlin standard library version that is at least as new as your library's configured API version.
+This can make upgrades more difficult when the runtime environment is outside their control and it's hard to provide a newer standard
+library version, such as in Gradle or IDE plugins.
+
+Choose the language and API versions that best fit your library. Newer versions let you adopt the latest Kotlin features,
+while older versions help more consumers use your library. The best choice depends on your library's use case and the 
+number of consumers who rely on it.
+
 ## Use the Binary compatibility validator
 
 JetBrains provides a [Binary compatibility validator](https://github.com/Kotlin/binary-compatibility-validator) tool, which can be used to ensure binary compatibility across different versions of your API.
