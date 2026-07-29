@@ -45,10 +45,10 @@ When publishing a library, consider both its compile-time and runtime compatibil
 In most cases, use the same language and API version.
 
 Setting a newer language version for your library requires your consumers to use a newer Kotlin compiler version. On the JVM,
-consumers can use a compiler version the same as the library's configured language version or the previous language version.
-For example, setting language version 2.2 means that the compiler version can be 2.2.x or 2.1.x.
-On other platforms, consumers must use a compiler version the same as the library's configured language version. This 
-requirement can delay consumers from upgrading to newer versions of your library if they can't upgrade their compiler immediately.
+consumers can use any compiler version from the previous language version onwards. For example, if your library uses language version
+2.2, consumers can use compiler version 2.1.x, 2.2.x or later. On other platforms, consumers can use a compiler version
+the same as the library's configured language version or any later version. This requirement can delay consumers from upgrading to
+newer versions of your library if they can't upgrade their compiler immediately.
 
 Your consumers also need to provide a Kotlin standard library version that is at least as new as your library's configured API version.
 This can make upgrades more difficult when the runtime environment is outside their control and it's hard to provide a newer standard
