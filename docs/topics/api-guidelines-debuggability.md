@@ -144,10 +144,10 @@ A common pattern is to wrap a low-level exception in a library-specific one, wit
 ## Support coroutine stack trace recovery for custom exceptions
 <primary-label ref="experimental-general"/>
 
-You can add support for coroutine stack trace recovery to custom exception types in your library to make them easier to debug.
+You can add support for coroutine [stack trace recovery](coroutines-debugging.md#stack-trace-recovery) to custom exception types in your library to make them easier to debug.
 This improves your library's support for the `kotlinx.coroutines` library and other asynchronous runtimes in Kotlin.
 
-When a coroutine receives one of these exceptions from another coroutine through a suspending function, stack trace recovery creates a copy of the exception with the stack frames that lead to that function call.
+When a coroutine receives an exception from another coroutine through a suspending function, stack trace recovery creates a copy of the exception with the stack frames that lead to that function call.
 
 The `kotlinx.coroutines` library performs stack trace recovery automatically for exceptions with constructors that take only an exception message, a cause, both, or no arguments.
 If an exception type in your library requires additional constructor arguments, such as a line number or an error code, implement the `StackTraceRecoverable` interface.
@@ -197,8 +197,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.4.20"}
-
-For more information, see [Stack trace recovery](coroutines-debugging.md#stack-trace-recovery).
 
 ## Next step
 
