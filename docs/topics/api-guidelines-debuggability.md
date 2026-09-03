@@ -150,9 +150,9 @@ This improves your library's support for the `kotlinx.coroutines` library and ot
 When a coroutine receives an exception from another coroutine through a suspending function, stack trace recovery creates a copy of the exception with the stack frames that lead to that function call.
 
 The `kotlinx.coroutines` library performs stack trace recovery automatically for exceptions with constructors that take only an exception message, a cause, both, or no arguments.
-If an exception type in your library requires additional constructor arguments, such as a line number or an error code, implement the `StackTraceRecoverable` interface.
+If an exception type in your library requires additional constructor arguments, such as a line number or an error code, implement the [`StackTraceRecoverable`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines.debug/-stack-trace-recoverable/) interface.
 
-To implement the interface, override the `copyForStackTraceRecovery()` function.
+To implement the interface, override the [`copyForStackTraceRecovery()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines.debug/-stack-trace-recoverable/copy-for-stack-trace-recovery.html) function.
 In the override, return a new exception instance for stack trace recovery, or `null` if you don't want the `kotlinx.coroutines` library to copy the exception.
 
 The `StackTraceRecoverable` interface is part of the Kotlin standard library, so implementing it doesn't add a dependency on the `kotlinx.coroutines` library.
