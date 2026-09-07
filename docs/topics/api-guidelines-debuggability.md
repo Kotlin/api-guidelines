@@ -141,6 +141,63 @@ The type of the exception should indicate the type of the error, and the data in
 locate the root cause of the issue.
 A common pattern is to wrap a low-level exception in a library-specific one, with the original exception accessible as the `cause`.
 
+## Support coroutine stack trace recovery for custom exceptions
+<primary-label ref="experimental-general"/>
+
+You can add support for coroutine [stack trace recovery](coroutines-debugging.md#stack-trace-recovery) to custom exception types in your library to make them easier to debug.
+This improves your library's support for the `kotlinx.coroutines` library and other asynchronous runtimes in Kotlin.
+
+When a coroutine receives an exception from another coroutine through a suspending function, stack trace recovery creates a copy of the exception with the stack frames that lead to that function call.
+
+The `kotlinx.coroutines` library performs stack trace recovery automatically for exceptions with constructors that take only an exception message, a cause, both, or no arguments.
+If an exception type in your library requires additional constructor arguments, such as a line number or an error code, implement the [`StackTraceRecoverable`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines.debug/-stack-trace-recoverable/) interface.
+
+To implement the interface, override the [`copyForStackTraceRecovery()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines.debug/-stack-trace-recoverable/copy-for-stack-trace-recovery.html) function.
+In the override, return a new exception instance for stack trace recovery, or `null` if you don't want the `kotlinx.coroutines` library to copy the exception.
+
+The `StackTraceRecoverable` interface is part of the Kotlin standard library, so implementing it doesn't add a dependency on the `kotlinx.coroutines` library.
+
+Here's an example of a custom exception that preserves a `line` property when it creates a new instance for stack trace recovery:
+
+```kotlin
+import kotlin.coroutines.ExperimentalStdlibCoroutineSupportApi
+import kotlin.coroutines.debug.StackTraceRecoverable
+
+@OptIn(ExperimentalStdlibCoroutineSupportApi::class)
+class FileEditException
+// The implementation requires a private constructor
+// to pass the cause to the IllegalStateException constructor
+private constructor(
+    val line: Int,
+    private val detail: String,
+    cause: Throwable?,
+) : IllegalStateException("When editing line $line: $detail", cause),
+    // Implements StackTraceRecoverable for stack trace recovery
+    StackTraceRecoverable<FileEditException> {
+
+    constructor(line: Int, detail: String) : this(line, detail, null)
+
+    // Copies the line number and message details
+    override fun copyForStackTraceRecovery(): FileEditException =
+        FileEditException(line, detail, this)
+    }
+
+fun main() {
+    val original = FileEditException(15, "Unexpected token")
+    
+    // Normally, you don't need to call this function directly unless you're testing its behavior
+    // The kotlinx.coroutines library invokes it automatically during stack trace recovery
+    val copy = original.copyForStackTraceRecovery()
+
+    println(copy.message)
+    // When editing line 15: Unexpected token
+
+    println(copy.cause == original)
+    // true
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4.20"}
+
 ## Next step
 
 In the next part of the guide, you'll learn about testability.
