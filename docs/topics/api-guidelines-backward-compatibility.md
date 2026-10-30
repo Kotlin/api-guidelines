@@ -167,13 +167,12 @@ Source compatibility, however, is preserved. If you recompile both files, the pr
 
 ### Use overloads to preserve binary compatibility {initial-collapse-state="collapsed" collapsible="true"}
 
-When adding optional parameters to published APIs, you can use the [Experimental](components-stability.md#stability-levels-explained)
+When adding optional parameters to published APIs, you can use the
 [`@IntroducedAt`](java-to-kotlin-interop.md#overloads-generation) annotation to preserve binary compatibility.
 
 Add the annotation to each new optional parameter with the version in which it was introduced. For example:
 
 ```kotlin
-@OptIn(ExperimentalVersionOverloading::class)
 fun fib(@IntroducedAt("1.1") input: Int = 0) = …
 ```
 
